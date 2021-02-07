@@ -1,1 +1,2 @@
-# phoenixWear
+# PhoenixWear documentation
+
