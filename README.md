@@ -21,5 +21,5 @@ npm run lint
 ```
 ### Want to know more about us?
 ```
-[Wiki](https://github.com/FundIngSoft2021-10/phoenixWear/wiki)
+Check out our wiki!
 ```
