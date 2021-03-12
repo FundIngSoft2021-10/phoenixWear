@@ -60,3 +60,7 @@ Once your PR is approved and merged, make sure your changes are available at <fu
 ```
 Check out our wiki!
 ```
+### Want to know more about the project?
+```
+Check out the `feature/docs` branch.There you will find the documentation of this project
+```
