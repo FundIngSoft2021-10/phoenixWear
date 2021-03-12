@@ -1,14 +1,14 @@
 # ***Phoneix Wear - website***
 
 ## Pre requirements
-you must have npm and vue installed
+You must have npm and vue installed
 
 ## npm intallation
 Here is a guide for installing npm
 https://nodejs.org/es/download/package-manager/
 
 ## vue installation
-after installing npm, just run the `npm install vue` command<br/>
+After installing npm, just run the `npm install vue` command<br/>
 If you want to have a view of the project with a graphical interface, you can install vue cli with the following command `npm install -g @vue/cli`
 
 ## Project setup
@@ -43,7 +43,7 @@ If you want to have a view of the project with a graphical interface, you can in
 * Compiles and minifies for production `npm run build`
 * Lints and fixes files `npm run lint`
 
-## PR
+## Pull request
 
 If you have tasks to complete, please follow these steps:
 
