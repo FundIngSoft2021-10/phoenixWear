@@ -54,7 +54,7 @@ If you have tasks to complete, please follow these steps:
 
 ## Verify ticket
 
-Once your PR is approved and merged, make sure your changes are available at <future page link>
+Once your PR is approved and merged, make sure your changes are available at https://phoenixwear.herokuapp.com/
 
 ### Want to know more about us?
 ```
@@ -62,5 +62,5 @@ Check out our wiki!
 ```
 ### Want to know more about the project?
 ```
-Check out the `feature/docs` branch.There you will find the documentation of this project
+Check out the feature/docs branch.There you will find the documentation of this project
 ```
