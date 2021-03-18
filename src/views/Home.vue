@@ -15,10 +15,12 @@
       <li>
         <router-link class="link" to="/nosotros">Nosotros</router-link>
       </li>
+        
       <li>
         <router-link class="link" to="/contacto">Contacto</router-link>
       </li>
     </ul>
+    <i class="fas fa-chevron-down"></i>
   </div>
 </template>
 
@@ -30,6 +32,9 @@ export default {};
  
 .v-application ul {
   padding: 0;
+}
+i {
+  color: aquamarine;
 }
 h1 {
   font-family: $pattaya-font;
