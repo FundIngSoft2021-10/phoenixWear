@@ -1,7 +1,7 @@
 <template>
   <div id="home-section">
     <h1>In construction</h1>
-    <img src="../assets/logo.png" alt="Phoenix-logo" height="200" width="200" />
+    <img src="../assets/imgs/logo.png" alt="Phoenix-logo" height="200" width="200" />
     <ul>
       <li>
         <router-link class="link" to="/">Home</router-link>
