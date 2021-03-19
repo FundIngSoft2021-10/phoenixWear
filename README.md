@@ -50,7 +50,7 @@ If you have tasks to complete, please follow these steps:
 1. Create your own branch `git checkout -b feature/ticket-title`.
 2. Complete your task.
 3. Run `npm run serve` open `http://localhost:8080` and test your component's task. Test it with multiple browsers.
-4. Create the PR.
+4. Create the PR and fill template.
 
 ## Verify ticket
 
