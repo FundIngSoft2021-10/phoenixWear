@@ -39,7 +39,6 @@ const routes = [{
         name: 'Error',
         component: Error
     },
-
 ]
 
 const router = new VueRouter({
