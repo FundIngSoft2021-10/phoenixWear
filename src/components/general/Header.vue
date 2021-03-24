@@ -2,29 +2,28 @@
 <v-app  > 
 
  <header>
-   <div>Mi cuenta</div>
+   <div class="MC">  <router-link class="MC" to="/cuenta">Mi cuenta </router-link> <i class="fas fa-user-alt"></i> <i class="fas fa-bell"></i></div>
    <h1>Phoenix Wear</h1>
-   <div>Mi carrito</div>
+   <div class="Carrito"> <router-link class="Carrito" to="/carrito">Mi carrito </router-link><i class="fas fa-shopping-cart"></i><i class="fas fa-search"></i></div>
  </header> 
   
-  <hr noshade/>  
+ <hr noshade/>  
  <nav>
-   
-    <ul>
+    <ul >
       <li>
-        <router-link class="link" to="/">Trending</router-link>
+        <router-link class="link" to="/"  @click="activate(1)" :class="{ active: active_el == 1 }" >Trending</router-link>
       </li>
       <li>
-        <router-link class="link" to="/ropa">Ropa</router-link>
+        <router-link class="link" to="/ropa" @click="activate(2)" :class="{ active: active_el == 2 }">Ropa</router-link>
       </li>
       <li>
-        <router-link class="link" to="/preguntas">Q&A</router-link>
+        <router-link class="link" to="/preguntas" @click="activate(3)" :class="{ active: active_el == 3 }">Q&A</router-link>
       </li>
       <li>
-        <router-link class="link" to="/nosotros">Nosotros</router-link>
+        <router-link class="link" to="/nosotros" @click="activate(4)" :class="{ active: active_el == 4}">Nosotros</router-link>
       </li> 
       <li>
-        <router-link class="link" to="/contacto">Contacto</router-link>
+        <router-link class="link" to="/contacto" @click="activate(5)" :class="{ active: active_el == 5 }">Contacto</router-link>
       </li>
     </ul> 
     </nav>
@@ -33,13 +32,30 @@
 </template>
 
 <script>
-export default {}
+export default {
+
+  data() {
+    return{
+    active_el : 1,
+    }
+  },
+  methods: {
+    activate(el) {
+      this.active_el = el;
+    },
+  },
+};
+
 </script>
 
 
 <style scoped lang="scss">
- 
- h1{
+
+.active{
+   color: #FF8585  !important;
+}
+
+h1{
      font-family: $pattaya-font;
      font-size: 45px;
      color: #2C363F;
@@ -97,10 +113,48 @@ header{
 
 }
 
-header div{
+.MC{
+  margin-left: 3%;
+  width: 9%;
   text-transform: uppercase;
   font-size: 12px;
   margin-top: 30px;
+  text-decoration: none;
+  color: #2C363E;
+}
+
+.MC :hover{
+color:#FF8585;
+}
+
+.Carrito{
+  margin-right: 3%;
+  width: 10%;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-top: 30px;
+  color: #2C363E;
+  text-decoration: none;
+}
+
+.Carrito :hover{
+  color:#FF8585;
+}
+
+i{
+
+  margin-left: 5%;
+  color: #FF8585;
+}
+
+.fa-shopping-cart{
+  margin-left: 0;
+  margin-right: 5%;
+}
+.fa-search{
+  padding: 6px;
+  border-left: 1px solid #2C363F;
+  color: #2C363F;
 }
 
 </style>

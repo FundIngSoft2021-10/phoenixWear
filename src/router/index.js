@@ -7,6 +7,8 @@ import Contact from '../views/Contact'
 import Details from '../views/Details'
 import Questions from '../views/Questions'
 import Error from '../views/Error404'
+import MiCarrito from '../views/MiCarrito'
+import MiCuenta from '../views/MiCuenta'
 
 Vue.use(VueRouter)
 
@@ -41,10 +43,21 @@ const routes = [{
         component: Details
     },
     {
+        path: '/carrito',
+        name: 'MiCarrito',
+        component: MiCarrito
+    },
+    {
+        path: '/cuenta',
+        name: 'MiCuenta',
+        component: MiCuenta
+    },
+    {
         path: '/*',
         name: 'Error',
         component: Error
     },
+ 
 
 ]
 
