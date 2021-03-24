@@ -1,7 +1,8 @@
 <template>
-    <v-app>
-        <Header/>
-    </v-app>
+  <v-app>
+    <Header/>
+    
+  </v-app>  
 </template>
 
 <script>
@@ -14,6 +15,4 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

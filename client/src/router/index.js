@@ -1,18 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home'
+import Trending from '../views/Trending'
 import About from '../views/AboutUs'
 import Clothes from '../views/Clothes'
 import Contact from '../views/Contact'
+import Details from '../views/Details'
 import Questions from '../views/Questions'
 import Error from '../views/Error404'
+import MiCarrito from '../views/MiCarrito'
+import MiCuenta from '../views/MiCuenta'
 
 Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
-        name: 'Home',
-        component: Home
+        name: 'Trending',
+        component: Trending
     },
     {
         path: '/nosotros',
@@ -35,10 +38,26 @@ const routes = [{
         component: Questions
     },
     {
+        path: '/detalles',
+        name: 'Detalles',
+        component: Details
+    },
+    {
+        path: '/carrito',
+        name: 'MiCarrito',
+        component: MiCarrito
+    },
+    {
+        path: '/cuenta',
+        name: 'MiCuenta',
+        component: MiCuenta
+    },
+    {
         path: '/*',
         name: 'Error',
         component: Error
     },
+ 
 
 ]
 
