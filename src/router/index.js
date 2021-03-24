@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home'
+import Trending from '../views/Trending'
 import About from '../views/AboutUs'
 import Clothes from '../views/Clothes'
 import Contact from '../views/Contact'
+import Details from '../views/Details'
 import Questions from '../views/Questions'
 import Error from '../views/Error404'
 
@@ -11,8 +12,8 @@ Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
-        name: 'Home',
-        component: Home
+        name: 'Trending',
+        component: Trending
     },
     {
         path: '/nosotros',
@@ -33,6 +34,11 @@ const routes = [{
         path: '/preguntas',
         name: 'Preguntas',
         component: Questions
+    },
+    {
+        path: '/detalles',
+        name: 'Detalles',
+        component: Details
     },
     {
         path: '/*',

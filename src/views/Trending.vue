@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <Header/>
-    <h1>Clothes</h1>
+   <Header/>
+   <!-- <img src="../assets/imgs/logo.png" alt="Phoenix-logo" height="200" width="200" /> --> 
   </v-app>
 </template>
 
@@ -13,6 +13,9 @@ export default {
    Header,
  }
 };
+
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+
+</style>
