@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <Header/>
-    <h1>Clothes</h1>
   </v-app>
 </template>
 

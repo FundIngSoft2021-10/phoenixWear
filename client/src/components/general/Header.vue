@@ -1,5 +1,5 @@
 <template>
-<v-app  > 
+<v-app> 
 
  <header>
    <div class="MC">  <router-link class="MC" to="/cuenta">Mi cuenta </router-link> <i class="fas fa-user-alt"></i> <i class="fas fa-bell"></i></div>
@@ -11,19 +11,19 @@
  <nav>
     <ul >
       <li>
-        <router-link class="link" to="/"  @click="activate(1)" :class="{ active: active_el == 1 }" >Trending</router-link>
+        <router-link class="link" to="/">Trending</router-link>
       </li>
       <li>
-        <router-link class="link" to="/ropa" @click="activate(2)" :class="{ active: active_el == 2 }">Ropa</router-link>
+        <router-link class="link" to="/ropa">Ropa</router-link>
       </li>
       <li>
-        <router-link class="link" to="/preguntas" @click="activate(3)" :class="{ active: active_el == 3 }">Q&A</router-link>
+        <router-link class="link" to="/preguntas">Q&A</router-link>
       </li>
       <li>
-        <router-link class="link" to="/nosotros" @click="activate(4)" :class="{ active: active_el == 4}">Nosotros</router-link>
+        <router-link class="link" to="/nosotros">Nosotros</router-link>
       </li> 
       <li>
-        <router-link class="link" to="/contacto" @click="activate(5)" :class="{ active: active_el == 5 }">Contacto</router-link>
+        <router-link class="link" to="/contacto">Contacto</router-link>
       </li>
     </ul> 
     </nav>
@@ -34,26 +34,12 @@
 <script>
 export default {
 
-  data() {
-    return{
-    active_el : 1,
-    }
-  },
-  methods: {
-    activate(el) {
-      this.active_el = el;
-    },
-  },
 };
 
 </script>
 
 
 <style scoped lang="scss">
-
-.active{
-   color: #FF8585  !important;
-}
 
 h1{
      font-family: $pattaya-font;
@@ -70,6 +56,10 @@ nav{
     align-items: center;
     min-height: 8vh;
     font-family: $montserratRegular-font;
+    .router-link-exact-active{
+      color:#FF8585;
+    }
+    
 }
 
 ul{
@@ -110,6 +100,9 @@ header{
     align-items: center;
     min-height: 8vh;
     font-family: $montserratRegular-font;
+    .router-link-exact-active{
+      color:#FF8585;
+    }
 
 }
 
