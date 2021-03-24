@@ -1,0 +1,23 @@
+{
+    "name": "phoenix-back-end",
+    "version": "1.0.0",
+    "description": "This is the phoenix wear backend",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "serve": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/FundIngSoft2021-10/phoenixWear.git"
+    },
+    "author": "@monotera && @CarlosAndresErazoGarzon",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/FundIngSoft2021-10/phoenixWear/issues"
+    },
+    "homepage": "https://github.com/FundIngSoft2021-10/phoenixWear#readme",
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    }
+}
