@@ -1,11 +1,5 @@
 # ***Phoneix Wear - website***
 
-PhoenixWear is a web platform that seeks to give a second chance to high-level garments that have received few uses,
-in this way we connect buyers and sellers in a safe and modern site that facilitates the flow of clothes. This platform 
-seeks to guarantee security to its users, with this in mind it accommodates flexible payment methods, communication channels, 
-attention via support and a set of user policies that guarantee the main idea of
-​​the page. PhoenixWear wants to target a select audience, specifically premium quality womenswear.
-
 ## Pre requirements
 You must have npm and vue installed
 
@@ -20,7 +14,27 @@ If you want to have a view of the project with a graphical interface, you can in
 ## Project setup
 1. Clone the repository.
 2. You will find the `package.json`. You can run `npm i` to install the dependencies.
-3. See further instruction if you are trying to run the server
+
+## Dependencies
+
+* vuex
+* vuetify
+* vue-router
+* vue
+* serve-static
+* sass-loader
+* node-sass
+* express-sslify
+* express
+* core-js
+* connect-history-api-fallback
+
+## DevDependencies
+
+* babel-eslint
+* eslint
+* eslint-plugin-vue
+* vue-template-compiler
 
 ## Scripts
 
