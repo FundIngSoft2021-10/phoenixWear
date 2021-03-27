@@ -1,4 +1,4 @@
-require("./data/mongoose");
+require("./db/mongoose");
 const express = require("express");
 const recordsRouter = require("./routes/records");
 
