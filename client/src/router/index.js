@@ -10,6 +10,7 @@ import Error from "../views/Error404";
 import MiCarrito from "../views/MiCarrito";
 import MiCuenta from "../views/MiCuenta";
 import AddProduct from "../views/AddProduct";
+import UpdateProduct from "../views/UpdateProduct";
 
 Vue.use(VueRouter);
 
@@ -54,9 +55,14 @@ const routes = [{
         component: MiCuenta,
     },
     {
-        path: "/a-producto",
+        path: "/user/agregar-producto",
         name: "Agregar-productos",
         component: AddProduct,
+    },
+    {
+        path: "/user/actualizar-producto",
+        name: "Agregar-productos",
+        component: UpdateProduct,
     },
     {
         path: "/*",
