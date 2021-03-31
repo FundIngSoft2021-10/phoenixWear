@@ -11,6 +11,8 @@ import MiCarrito from "../views/MiCarrito";
 import MiCuenta from "../views/MiCuenta";
 import AddProduct from "../views/AddProduct";
 import UpdateProduct from "../views/UpdateProduct";
+import CreateUser from "../views/CreateUser";
+import UpdateUser from "../views/UpdateUser";
 
 Vue.use(VueRouter);
 
@@ -61,8 +63,18 @@ const routes = [{
     },
     {
         path: "/user/actualizar-producto",
-        name: "Agregar-productos",
+        name: "Actualizar-producto",
         component: UpdateProduct,
+    },
+    {
+        path: "/crear-ususario",
+        name: "Crear usuario",
+        component: CreateUser,
+    },
+    {
+        path: "/user/actualizar-ususario",
+        name: "Actualizar usuario",
+        component: UpdateUser,
     },
     {
         path: "/*",
