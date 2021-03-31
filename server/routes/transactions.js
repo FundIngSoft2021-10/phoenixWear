@@ -75,7 +75,7 @@ router.get("/findByIDBuyer/:id", async (req, res) => {
 
 // Return by ID_Product
 
-router.get("/findByIDBuyer/:id", async (req, res) => {
+router.get("/findByIDProduct/:id", async (req, res) => {
     try {
         const trsByIDProduct = await Trs.find({
             "ID_product": req.params.id
