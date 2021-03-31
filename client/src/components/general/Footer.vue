@@ -3,19 +3,20 @@
     <div class="cards">
       <div class="we">
         <h2>Phoenix Wear</h2>
-        <h3>License</h3>
-      <i class="far fa-copyright"> All rights reserved</i>
       </div>
       <div class="social-media">
-        <h2>Social media</h2>
+        <h2>Redes sociales</h2>
         <a href="#"><i class="fab fa-facebook fa-2x icon"></i></a>
        <a href="#"><i class="fab fa-twitter fa-2x icon"></i></a>
         <a href="https://github.com/FundIngSoft2021-10/phoenixWear/wiki/Integrantes"><i class="fab fa-github fa-2x icon"></i></a>
       </div>
       <div class="contact">
-        <h2>Contact</h2>
+        <h2>Contacto</h2>
         <a href="mailto:fcamargodiaz@gmial.com"><i class="fas fa-envelope fa-2x icon"></i></a>
       </div>
+    </div>
+    <div class="License">
+    <i class="far fa-copyright"> All rights reserved</i>
     </div>
   </div>
 </template>
@@ -28,7 +29,7 @@ export default {};
 .footer{
     margin-top: 40px;
     background-color: #FFBBBB;
-    padding: 5rem 2rem;
+    padding: 2rem 2rem;
     font-family: $montserratRegular-font;
 }
 
@@ -75,5 +76,13 @@ export default {};
   color: white;
 }
 
+.License{
+  margin-top: 1rem;
+  padding-left: 65px;
+  align-items: center;
+  display:flex;
+  justify-content: space-around;
+  color: white;
+}
 
 </style>
