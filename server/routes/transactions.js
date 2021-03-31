@@ -27,9 +27,7 @@ router.get("/findById/:id", async (req, res) => {
         if (!trsById) {
             return res.status(400).send();
         }
-        res.send({
-            trsById,
-        });
+        res.send(trsById);
     } catch (error) {
         res.status(500).send();
     }
@@ -85,9 +83,7 @@ router.get("/findByIDBuyer/:id", async (req, res) => {
         if (!trsByIDProduct) {
             return res.status(400).send();
         }
-        res.send({
-            trsByIDProduct
-        });
+        res.send(trsByIDProduct);
     } catch (error) {
         res.status(500).send();
     }
