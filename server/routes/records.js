@@ -3,6 +3,8 @@ const Record = require("../models/records");
 
 const router = new express.Router();
 
+// Return all values
+
 router.get("/", async(req, res) => {
     try {
         const record = await Record.find();
@@ -13,6 +15,22 @@ router.get("/", async(req, res) => {
             record,
         });
     } catch (error) {
+        res.status(500).send();
+    }
+});
+
+// Return by id
+
+router.get("/:id", async(req, res) =>{
+    try {
+        const recordById = await Record.findById(req.params.id);
+        if (!recordById) {
+            return res.status(400).send();
+        }
+        res.send({
+            recordById,
+        });
+    } catch (error){
         res.status(500).send();
     }
 });
