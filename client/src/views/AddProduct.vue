@@ -22,9 +22,8 @@ export default {
         premium: false,
         color: "",
         talla: "",
-        id_buyer: "",
-        id_seller: "",
         img: [],
+        tags: "",
       },
     };
   },

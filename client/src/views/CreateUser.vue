@@ -23,8 +23,6 @@ export default {
         phone: "",
         city: "",
         img: null,
-        phoenix_credits: 0,
-        score: 5,
       },
     };
   },

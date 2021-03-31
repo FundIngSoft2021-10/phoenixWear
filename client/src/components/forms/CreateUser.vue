@@ -51,7 +51,7 @@
         />
         <v-btn
           :disabled="!valid"
-          methos="POST"
+          method="POST"
           @click="submit"
           large
           rounded

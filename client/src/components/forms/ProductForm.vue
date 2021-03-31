@@ -59,6 +59,12 @@
             label="Talla"
             required
           />
+          <v-text-field
+            v-model="product_info.tags"
+            label="Tags (Dividirlo por comas)"
+            :rules="tags_rule"
+            required
+          />
           <v-switch
             v-model="product_info.premium"
             color="phoenix"
@@ -66,7 +72,7 @@
           />
           <v-btn
             :disabled="!valid"
-            methos="POST"
+            method="POST"
             @click="submit"
             large
             rounded
@@ -98,6 +104,11 @@ export default {
         (value) =>
           value.length < 50 ||
           "El nombre del producto debe ser menor a 50 caracteres",
+      ],
+      tags_rule: [
+        (value) => !!value || "El campo es obligatorio",
+        (value) =>
+          value.length < 70 || "Los tags deben ser menor a 70 caracteres",
       ],
       description_rule: [
         (value) => !!value || "El campo es obligatorio",

@@ -23,8 +23,6 @@ export default {
         city: "Bogota",
         phone: "300-478-8575",
         img: null,
-        phoenix_credits: 0,
-        score: 5,
       },
     };
   },

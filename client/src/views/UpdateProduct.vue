@@ -26,6 +26,7 @@ export default {
         id_buyer: "45686126om",
         id_seller: "45646854",
         img: [],
+        tags: "polo, mujeres, emprendedora",
       },
     };
   },
