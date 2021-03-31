@@ -9,10 +9,10 @@ const productSchema = new Schema({
         type: InfoProduct.schema,
         required: true,
     },
-    photo: {
+    photo: [{
         type: Buffer,
         required: true,
-    },
+    }],
     tags: [{
         type: String,
         required: false,

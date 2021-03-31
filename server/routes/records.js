@@ -3,9 +3,13 @@ const Record = require("../models/records");
 
 const router = new express.Router();
 
-router.get("/", async(req, res) => {
+// Returns all values from the earliest date
+
+router.get("/", async (req, res) => {
     try {
-        const record = await Record.find();
+        const record = await Record.find().sort({
+            date: 0
+        });
         if (!record) {
             return res.status(400).send();
         }
@@ -17,7 +21,21 @@ router.get("/", async(req, res) => {
     }
 });
 
-router.post("/", async(req, res) => {
+//Return by id
+
+router.get("/findById/:id", async (req, res) => {
+    try {
+        const recordById = await Record.findById(req.params.id);
+        if (!recordById) {
+            return res.status(400).send();
+        }
+        res.send(recordById);
+    } catch (error) {
+        res.status(500).send();
+    }
+});
+
+router.post("/", async (req, res) => {
     try {
         const record = await new Record(req.body).save();
         res.status(201).send(record);

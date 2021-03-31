@@ -9,8 +9,9 @@ const garmentSchema = new Schema({
     },
     size: {
         type: String,
+        uppercase: true,
     },
-    accesorio: {
+    accessory: {
         type: String,
     },
 });
