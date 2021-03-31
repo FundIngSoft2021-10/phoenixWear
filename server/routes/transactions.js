@@ -11,9 +11,7 @@ router.get("/", async(req, res) =>{
         if (!trs) {
             return res.status(400).send();
         }
-        res.send({
-            trs,
-        });
+        res.send(trs);
     } catch (error){
         res.status(500).send();
     }

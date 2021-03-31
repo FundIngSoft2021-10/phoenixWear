@@ -27,9 +27,7 @@ router.get("/findById/:id", async(req, res) =>{
         if (!userById) {
             return res.status(400).send();
         }
-        res.send({
-            userById,
-        });
+        res.send(userById);
     } catch (error){
         res.status(500).send();
     }
