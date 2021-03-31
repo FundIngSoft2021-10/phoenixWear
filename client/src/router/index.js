@@ -1,65 +1,69 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Trending from '../views/Trending'
-import About from '../views/AboutUs'
-import Clothes from '../views/Clothes'
-import Contact from '../views/Contact'
-import Details from '../views/Details'
-import Questions from '../views/Questions'
-import Error from '../views/Error404'
-import MiCarrito from '../views/MiCarrito'
-import MiCuenta from '../views/MiCuenta'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Trending from "../views/Trending";
+import About from "../views/AboutUs";
+import Clothes from "../views/Clothes";
+import Contact from "../views/Contact";
+import Details from "../views/Details";
+import Questions from "../views/Questions";
+import Error from "../views/Error404";
+import MiCarrito from "../views/MiCarrito";
+import MiCuenta from "../views/MiCuenta";
+import AddProduct from "../views/AddProduct";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [{
-        path: '/',
-        name: 'Trending',
-        component: Trending
+        path: "/",
+        name: "Trending",
+        component: Trending,
     },
     {
-        path: '/nosotros',
-        name: 'Nosotros',
-        component: About
+        path: "/nosotros",
+        name: "Nosotros",
+        component: About,
     },
     {
-        path: '/ropa',
-        name: 'Ropa',
-        component: Clothes
+        path: "/ropa",
+        name: "Ropa",
+        component: Clothes,
     },
     {
-        path: '/contacto',
-        name: 'Contacto',
-        component: Contact
+        path: "/contacto",
+        name: "Contacto",
+        component: Contact,
     },
     {
-        path: '/preguntas',
-        name: 'Preguntas',
-        component: Questions
+        path: "/preguntas",
+        name: "Preguntas",
+        component: Questions,
     },
     {
-        path: '/detalles',
-        name: 'Detalles',
-        component: Details
+        path: "/detalles",
+        name: "Detalles",
+        component: Details,
     },
     {
-        path: '/carrito',
-        name: 'MiCarrito',
-        component: MiCarrito
+        path: "/carrito",
+        name: "MiCarrito",
+        component: MiCarrito,
     },
     {
-        path: '/cuenta',
-        name: 'MiCuenta',
-        component: MiCuenta
+        path: "/cuenta",
+        name: "MiCuenta",
+        component: MiCuenta,
     },
     {
-        path: '/*',
-        name: 'Error',
-        component: Error
+        path: "/a-producto",
+        name: "Agregar-productos",
+        component: AddProduct,
     },
- 
-
-]
+    {
+        path: "/*",
+        name: "Error",
+        component: Error,
+    },
+];
 
 const router = new VueRouter({
     index: "/default.html",
@@ -68,4 +72,4 @@ const router = new VueRouter({
     routes,
 });
 
-export default router
+export default router;
