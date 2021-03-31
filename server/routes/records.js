@@ -21,7 +21,7 @@ router.get("/", async(req, res) => {
 
 // Return by id
 
-router.get("/:id", async(req, res) =>{
+router.get("/findById/:id", async(req, res) =>{
     try {
         const recordById = await Record.findById(req.params.id);
         if (!recordById) {
