@@ -50,28 +50,20 @@ const userSchema = new Schema({
 
 module.exports = mongoose.model("User", userSchema);
 
-/* EXAMPLE POST SKELETON
+/* EXAMPLE BASIC POST SKELETON
 
     {
-        "mail" : "",
-        "pass" : "",
         "personal_information" : {
             "username" : "",
             "phone" : "",
             "address" : "",
             "departament" : "",
-            "city" : ""
+            "city" : "",
+            "mail" : "",
+            "pass" : "",
+            "photo" : ""
         },
-        "photo" : "",
-        "phoenix_credits" : "",
-        "score" : "",
-        "favorites" : [],
-        "own_products" : [],
-        "purchased_products" : [],
-        "cart" : {
-            "products" : [],
-            "total" : ""
-        }
+        "phoenix_credits" : ""
     }
 
 */
