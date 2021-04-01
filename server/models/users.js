@@ -5,23 +5,9 @@ const InfoUser = require("./info_users");
 const Cart = require("./cart_user");
 
 const userSchema = new Schema({
-    mail: {
-        type: String, 
-        require: true,
-        lowercase: true,
-    },
-    pass: {
-        type: String,
-        required: true,
-        minLength: [6, "La contraseña es muy corta"],
-    },
     personal_information: {
         type: InfoUser.schema,
         required: true,
-    },
-    photo: {
-        type: Buffer,
-        require: true,
     },
     phoenix_credits: {
         type: Number,

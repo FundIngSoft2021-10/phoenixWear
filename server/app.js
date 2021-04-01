@@ -10,9 +10,9 @@ const app = express();
 app.use(express.json());
 
 //middlewears
-app.use("/", recordsRouter);
-app.use("/user", recordsUser);
-app.use("/product", recordsProduct);
+app.use("/records", recordsRouter);
+app.use("/users", recordsUser);
+app.use("/products", recordsProduct);
 app.use("/transactions", recordsProduct);
 
 module.exports = app;
