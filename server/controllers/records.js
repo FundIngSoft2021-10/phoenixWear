@@ -3,7 +3,7 @@ const Record = require("../models/records");
 exports.getRecords = async (req, res) => {
     try {
         const record = await Record.find().sort({
-            date: 0
+            date: -1
         });
         if (!record) {
             return res.status(400).send();

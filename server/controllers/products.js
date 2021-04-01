@@ -92,6 +92,8 @@ exports.findByIDSeller = async (req, res) => {
     try {
         const productByIDSeller = await Product.find({
             "ID_seller": req.params.id
+        }).sort({
+            "information.date": -1
         });
         if (!productByIDSeller) {
             return res.status(400).send();
@@ -108,6 +110,8 @@ exports.findByIDBuyer = async (req, res) => {
     try {
         const productByIDBuyer = await Product.find({
             "ID_buyer": req.params.id
+        }).sort({
+            "information.date": 0
         });
         if (!productByIDBuyer) {
             return res.status(400).send();
