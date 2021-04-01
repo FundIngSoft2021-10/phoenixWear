@@ -2,6 +2,7 @@ const express = require("express");
 const router = new express.Router();
 
 const Trs = require("../models/transactions");
+const Record = require("../models/records");
 
 // Return all values
 
@@ -94,7 +95,10 @@ router.get("/findByIDProduct/:id", async (req, res) => {
 router.post("/", async (req, res) => {
     try {
         const trs = await new Trs(req.body).save();
-        res.status(201).send(trs);
+        const record = await new Record({
+            "description": "Se crea la transacción de ID: " + trs.id
+        }).save();
+        res.status(201).send([trs,record]);
     } catch (error) {
         res.status(500).send(error);
     }

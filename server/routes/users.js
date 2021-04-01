@@ -1,11 +1,12 @@
 const express = require("express");
 const User = require("../models/users");
+const Record = require("../models/records");
 
 const router = new express.Router();
 
 // Return all values
 
-router.get("/", async(req, res) =>{
+router.get("/", async (req, res) => {
     try {
         const user = await User.find();
         if (!user) {
@@ -14,29 +15,32 @@ router.get("/", async(req, res) =>{
         res.send({
             user,
         });
-    } catch (error){
+    } catch (error) {
         res.status(500).send();
     }
 });
 
 //Return by id
 
-router.get("/findById/:id", async(req, res) =>{
+router.get("/findById/:id", async (req, res) => {
     try {
         const userById = await User.findById(req.params.id);
         if (!userById) {
             return res.status(400).send();
         }
         res.send(userById);
-    } catch (error){
+    } catch (error) {
         res.status(500).send();
     }
 });
 
-router.post("/", async(req, res) =>{
+router.post("/", async (req, res) => {
     try {
         const user = await new User(req.body).save();
-        res.status(201).send(user);
+        const record = await new Record({
+            "description": "Se crea el usuario: " + user.personal_information.username + "\nDe ID: " + user.id
+        }).save();
+        res.status(201).send([user, record]);
     } catch (error) {
         res.status(500).send(error);
     }

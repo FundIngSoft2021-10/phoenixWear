@@ -18,6 +18,7 @@ const userSchema = new Schema({
         required: false,
         min: 0,
         max: 5,
+        default: 5
     },
     favorites: [{
         type: Schema.Types.ObjectId,
