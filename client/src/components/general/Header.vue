@@ -1,5 +1,5 @@
 <template>
-<v-app> 
+<div> 
 
  <header>
    <div class="MC">  <router-link class="MC" to="/cuenta">Mi cuenta </router-link> <i class="fas fa-user-alt"></i> <i class="fas fa-bell"></i></div>
@@ -27,7 +27,7 @@
       </li>
     </ul> 
     </nav>
-</v-app>
+</div>
  
 </template>
 
