@@ -1,5 +1,6 @@
 require("./db/mongoose");
 const express = require("express");
+var cors = require("cors");
 
 const recordsRouter = require("./routes/records");
 const recordsUser = require("./routes/users");
@@ -7,6 +8,7 @@ const recordsProduct = require("./routes/products");
 const recordsTransaction = require("./routes/transactions");
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 

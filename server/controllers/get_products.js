@@ -1,9 +1,9 @@
 const Product = require("../models/products");
 
-exports.getProducts = async (req, res) => {
+exports.getProducts = async(req, res) => {
     try {
         const product = await Product.find().sort({
-            "information.premium": -1
+            "information.premium": -1,
         });
         if (!product) {
             return res.status(400).send();
@@ -16,7 +16,7 @@ exports.getProducts = async (req, res) => {
     }
 };
 
-exports.findById = async (req, res) => {
+exports.findById = async(req, res) => {
     try {
         const productByID = await Product.findById(req.params.id);
         if (!productByID) {
@@ -28,13 +28,13 @@ exports.findById = async (req, res) => {
     }
 };
 
-exports.findByCategory = async (req, res) => {
+exports.findByCategory = async(req, res) => {
     try {
         const productByCategory = await Product.find({
             "garment.type_garment": req.params.category,
-            "information.status": "Disponible"
+            "information.status": "Disponible",
         }).sort({
-            "information.premium": -1
+            "information.premium": -1,
         });
         if (!productByCategory) {
             return res.status(400).send();
@@ -47,13 +47,13 @@ exports.findByCategory = async (req, res) => {
     }
 };
 
-exports.findBySize = async (req, res) => {
+exports.findBySize = async(req, res) => {
     try {
         const productBySize = await Product.find({
             "garment.size": req.params.size,
-            "information.status": "Disponible"
+            "information.status": "Disponible",
         }).sort({
-            "information.premium": -1
+            "information.premium": -1,
         });
         if (!productBySize) {
             return res.status(400).send();
@@ -66,13 +66,13 @@ exports.findBySize = async (req, res) => {
     }
 };
 
-exports.findByTags = async (req, res) => {
+exports.findByTags = async(req, res) => {
     try {
         const productByTag = await Product.find({
-            "tags": req.params.tag,
-            "information.status": "Disponible"
+            tags: req.params.tag,
+            "information.status": "Disponible",
         }).sort({
-            "information.premium": -1
+            "information.premium": -1,
         });
 
         if (!productByTag) {
@@ -87,36 +87,36 @@ exports.findByTags = async (req, res) => {
     }
 };
 
-exports.findByIDSeller = async (req, res) => {
+exports.findByIDSeller = async(req, res) => {
     try {
         const productByIDSeller = await Product.find({
-            "ID_seller": req.params.id
+            ID_seller: req.params.id,
         }).sort({
-            "information.date": -1
+            "information.date": -1,
         });
         if (!productByIDSeller) {
             return res.status(400).send();
         }
         res.send({
-            productByIDSeller
+            productByIDSeller,
         });
     } catch (error) {
         res.status(500).send();
     }
 };
 
-exports.findByIDBuyer = async (req, res) => {
+exports.findByIDBuyer = async(req, res) => {
     try {
         const productByIDBuyer = await Product.find({
-            "ID_buyer": req.params.id
+            ID_buyer: req.params.id,
         }).sort({
-            "information.date": 0
+            "information.date": 0,
         });
         if (!productByIDBuyer) {
             return res.status(400).send();
         }
         res.send({
-            productByIDBuyer
+            productByIDBuyer,
         });
     } catch (error) {
         res.status(500).send();

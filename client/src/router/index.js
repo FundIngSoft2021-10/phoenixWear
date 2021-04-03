@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Trending from "../views/Trending";
 import About from "../views/AboutUs";
-import Clothes from "../views/Clothes";
+import Products from "../views/Products";
 import Contact from "../views/Contact";
 import Details from "../views/Details";
 import Questions from "../views/Questions";
@@ -29,7 +29,7 @@ const routes = [{
     {
         path: "/ropa",
         name: "Ropa",
-        component: Clothes,
+        component: Products,
     },
     {
         path: "/contacto",
