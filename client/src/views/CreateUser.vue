@@ -22,6 +22,8 @@ export default {
         department: "",
         phone: "",
         city: "",
+        email: "",
+        password: "",
         img: null,
       },
     };

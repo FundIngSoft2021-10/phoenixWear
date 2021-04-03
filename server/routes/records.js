@@ -1,47 +1,12 @@
 const express = require("express");
-const Record = require("../models/records");
-
 const router = new express.Router();
 
-// Returns all values from the earliest date
+const getController = require("../controllers/get_records");
+const postController = require("../controllers/post_records");
 
-router.get("/", async (req, res) => {
-    try {
-        const record = await Record.find().sort({
-            date: 0
-        });
-        if (!record) {
-            return res.status(400).send();
-        }
-        res.send({
-            record,
-        });
-    } catch (error) {
-        res.status(500).send();
-    }
-});
+router.get("/", getController.getRecords);
+router.get("/findById/:id", getController.findById);
 
-//Return by id
-
-router.get("/findById/:id", async (req, res) => {
-    try {
-        const recordById = await Record.findById(req.params.id);
-        if (!recordById) {
-            return res.status(400).send();
-        }
-        res.send(recordById);
-    } catch (error) {
-        res.status(500).send();
-    }
-});
-
-router.post("/", async (req, res) => {
-    try {
-        const record = await new Record(req.body).save();
-        res.status(201).send(record);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-});
+router.post("/", postController.postRecord);
 
 module.exports = router;
