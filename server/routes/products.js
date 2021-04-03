@@ -1,16 +1,17 @@
 const express = require("express");
 const router = new express.Router();
 
-const productsController = require("../controllers/products");
+const getController = require("../controllers/get_products");
+const postController = require("../controllers/post_products");
 
-router.get("/", productsController.getProducts);
-router.get("/findById/:id", productsController.findById);
-router.get("/findByCategory/:category", productsController.findByCategory);
-router.get("/findBySize/:size", productsController.findBySize);
-router.get("/findByTags/:tag", productsController.findByTags);
-router.get("/findByIDSeller/:id", productsController.findByIDSeller);
-router.get("/findByIDBuyer/:id", productsController.findByIDBuyer);
+router.get("/", getController.getProducts);
+router.get("/findById/:id", getController.findById);
+router.get("/findByCategory/:category", getController.findByCategory);
+router.get("/findBySize/:size", getController.findBySize);
+router.get("/findByTags/:tag", getController.findByTags);
+router.get("/findByIDSeller/:id", getController.findByIDSeller);
+router.get("/findByIDBuyer/:id", getController.findByIDBuyer);
 
-router.post("/", productsController.postAProduct);
+router.post("/", postController.postProduct);
 
 module.exports = router;

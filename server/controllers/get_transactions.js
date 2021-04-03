@@ -1,5 +1,4 @@
 const Trs = require("../models/transactions");
-const Record = require("../models/records");
 
 exports.getTrs = async (req, res) => {
     try {
@@ -25,7 +24,7 @@ exports.findById = async (req, res) => {
     } catch (error) {
         res.status(500).send();
     }
-});
+};
 
 exports.findByIDSeller = async (req, res) => {
     try {
@@ -76,15 +75,3 @@ exports.findByIDProduct = async (req, res) => {
         res.status(500).send();
     }
 };
-
-exports.postATrs("/", async (req, res) => {
-    try {
-        const trs = await new Trs(req.body).save();
-        const record = await new Record({
-            "description": "Se crea la transacción de ID: " + trs.id
-        }).save();
-        res.status(201).send([trs,record]);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-});

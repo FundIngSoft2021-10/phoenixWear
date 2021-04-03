@@ -1,11 +1,12 @@
 const express = require("express");
 const router = new express.Router();
 
-const recordsController = require("../controllers/records");
+const getController = require("../controllers/get_records");
+const postController = require("../controllers/post_records");
 
-router.get("/", recordsController.getRecords);
-router.get("/findById/:id", recordsController.findById);
+router.get("/", getController.getRecords);
+router.get("/findById/:id", getController.findById);
 
-router.post("/", recordsController.post);
+router.post("/", postController.postRecord);
 
 module.exports = router;
