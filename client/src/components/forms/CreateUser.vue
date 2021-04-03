@@ -17,6 +17,23 @@
           :rules="text_rule"
         />
         <v-text-field
+          v-model="user_info.email"
+          label="Email"
+          required
+          :rules="email_rule"
+        />
+        <v-text-field
+          v-model="user_info.password"
+          :append-icon="showEye ? 'mdi-eye' : 'mdi-eye-off'"
+          :rules="[pass_rule.required, pass_rule.min]"
+          :type="showEye ? 'text' : 'password'"
+          name="input-10-1"
+          label="Contraseña"
+          hint="At least 8 characters"
+          counter
+          @click:append="showEye = !showEye"
+        ></v-text-field>
+        <v-text-field
           v-model="user_info.phone"
           label="Numero de telefono (xxx-xxx-xxxx)"
           required
@@ -73,6 +90,7 @@ export default {
   data() {
     return {
       valid: true,
+      showEye: false,
       text_rule: [
         (value) => !!value || "El campo es obligatorio",
         (value) =>
@@ -84,6 +102,18 @@ export default {
           /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(value) ||
           "El numero de telefono es invalido",
       ],
+      email_rule: [
+        (value) => !!value || "E-mail is required",
+        (value) =>
+          /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            value
+          ) || "E-mail must be valid",
+      ],
+      pass_rule: {
+        required: (value) => !!value || "Required.",
+        min: (v) => v.length >= 8 || "Min 8 characters",
+        emailMatch: () => `The email and password you entered don't match`,
+      },
     };
   },
   methods: {
