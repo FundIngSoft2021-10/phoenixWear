@@ -5,23 +5,9 @@ const InfoUser = require("./info_users");
 const Cart = require("./cart_user");
 
 const userSchema = new Schema({
-    mail: {
-        type: String, 
-        require: true,
-        lowercase: true,
-    },
-    pass: {
-        type: String,
-        required: true,
-        minLength: [6, "La contraseña es muy corta"],
-    },
     personal_information: {
         type: InfoUser.schema,
         required: true,
-    },
-    photo: {
-        type: Buffer,
-        require: true,
     },
     phoenix_credits: {
         type: Number,
@@ -32,6 +18,7 @@ const userSchema = new Schema({
         required: false,
         min: 0,
         max: 5,
+        default: 5
     },
     favorites: [{
         type: Schema.Types.ObjectId,
@@ -63,28 +50,20 @@ const userSchema = new Schema({
 
 module.exports = mongoose.model("User", userSchema);
 
-/* EXAMPLE POST SKELETON
+/* EXAMPLE BASIC POST SKELETON
 
     {
-        "mail" : "",
-        "pass" : "",
         "personal_information" : {
             "username" : "",
             "phone" : "",
             "address" : "",
             "departament" : "",
-            "city" : ""
+            "city" : "",
+            "mail" : "",
+            "pass" : "",
+            "photo" : ""
         },
-        "photo" : "",
-        "phoenix_credits" : "",
-        "score" : "",
-        "favorites" : [],
-        "own_products" : [],
-        "purchased_products" : [],
-        "cart" : {
-            "products" : [],
-            "total" : ""
-        }
+        "phoenix_credits" : ""
     }
 
 */

@@ -9,13 +9,9 @@ const productSchema = new Schema({
         type: InfoProduct.schema,
         required: true,
     },
-    photo: [{
-        type: Buffer,
-        required: true,
-    }],
     tags: [{
         type: String,
-        required: false,
+        required: true,
     }],
     garment: {
         type: Garment.schema,
@@ -28,6 +24,7 @@ const productSchema = new Schema({
     },
     ID_buyer: {
         type: Schema.Types.ObjectId,
+        required: false,
         ref: 'User',
     },
     // link: {
@@ -38,26 +35,24 @@ const productSchema = new Schema({
 
 module.exports = mongoose.model("Product", productSchema);
 
-/* EXAMPLE POST SKELETON
+/* EXAMPLE BASIC POST SKELETON
 
     {
         "information" : {
-            "status" : "",
             "name" : "",
             "price" : "",
             "color" : "",
             "description" : "",
             "short_description" : "",
-            "premium" : ""
+            "premium" : "",
+            "photo" : ""
         },
-        "photo" : "",
         "tags" : [],
         "garment" : {
             "type_garment" : "",
             "size" : ""
         },
-        "ID_seller" : "", 
-        "ID_buyer" : ""
+        "ID_seller" : ""
     }
 
 */

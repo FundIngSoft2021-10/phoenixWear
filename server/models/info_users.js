@@ -21,6 +21,20 @@ const infoUserSchema = new Schema({
     city: {
         type: String,
         required : true,
+    },
+    mail: {
+        type: String, 
+        require: true,
+        lowercase: true,
+    },
+    pass: {
+        type: String,
+        required: true,
+        minLength: [6, "La contraseña es muy corta"],
+    },
+    photo: {
+        type: Buffer,
+        require: true,
     }
 });
 
