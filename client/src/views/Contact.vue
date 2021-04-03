@@ -3,7 +3,7 @@
       <Header/>
       <main>
           <section class="col1" id="formul">
-            <form>
+            <form method="POST" action="#">
                 <label for="nombre" class="rotulo">NOMBRE</label><br/>
                 <input type="text" id="nombre" name="nombre" class="entrada" required><br>
                 <label for="apellido" class="rotulo">APELLIDO</label><br/>
