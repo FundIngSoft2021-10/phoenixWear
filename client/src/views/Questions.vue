@@ -1,6 +1,6 @@
 <template>
   <v-app>
-      <Header/>
+    <Header />
   </v-app>
 </template>
 
@@ -8,12 +8,10 @@
 import Header from "../components/general/Header.vue";
 
 export default {
- components: {
-   Header,
- }
+  components: {
+    Header,
+  },
 };
 </script>
 
-<style>
-
-</style>
+<style></style>
