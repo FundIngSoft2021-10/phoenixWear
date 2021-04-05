@@ -5,8 +5,6 @@ const recordsRouter = require("./routes/records");
 const recordsUser = require("./routes/users");
 const recordsProduct = require("./routes/products");
 const recordsTransaction = require("./routes/transactions");
-const allowlist = ["https://n4mbc432.herokuapp.com", "http://localhost:8080"];
-console.log(allowlist);
 
 const app = express();
 //CORS
