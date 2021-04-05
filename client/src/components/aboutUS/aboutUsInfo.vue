@@ -76,7 +76,7 @@ export default {};
     @media screen and (max-width: $breakpoint-tablet) {
       width: 300px;
       height: 200px;
-      margin: 0;
+      margin-top: 1rem;
     }
   }
   h2 {

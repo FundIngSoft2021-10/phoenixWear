@@ -33,7 +33,6 @@ export default {
   }
 }
 .team {
-  min-height: 100vh;
   margin-top: 3rem;
 }
 </style>

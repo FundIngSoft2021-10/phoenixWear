@@ -43,5 +43,9 @@ p {
   padding: 1rem;
   background: rgba(229, 229, 229, 0.3);
   font-size: 0.8rem;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    max-width: 80%;
+  }
 }
 </style>
