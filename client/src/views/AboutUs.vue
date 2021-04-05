@@ -8,8 +8,8 @@
 
 <script>
 import Header from "../components/general/Header.vue";
-import AboutUsInfo from "../components/aboutUS/aboutUsInfo";
-import AboutUsTeam from "../components/aboutUS/aboutUsTeam";
+import AboutUsInfo from "../components/aboutUS/AboutUsInfo";
+import AboutUsTeam from "../components/aboutUS/AboutUsTeam";
 export default {
   components: {
     Header,

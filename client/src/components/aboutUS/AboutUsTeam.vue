@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import MemberCard from "./aboutUsCard";
+import MemberCard from "./AboutUsCard";
 export default {
   components: {
     MemberCard,
