@@ -1,8 +1,25 @@
 <template>
   <div class="footer">
     <div class="cards">
-      <div class="we">
+      <div class="footer-navigation">
         <h2>Phoenix Wear</h2>
+        <ul class="nav-footer">
+          <li>
+            <router-link class="link" to="/"><p>Trending</p></router-link>
+          </li>
+          <li>
+            <router-link class="link" to="/ropa"><p>Ropa</p></router-link>
+          </li>
+          <li>
+            <router-link class="link" to="/preguntas"><p>Q&A</p></router-link>
+          </li>
+          <li>
+            <router-link class="link" to="/nosotros"><p>Nosotros</p></router-link>
+          </li>
+          <li>
+            <router-link class="link" to="/contacto"><p>Contacto</p></router-link>
+          </li>
+        </ul>
       </div>
       <div class="social-media">
         <h2>Redes sociales</h2>
@@ -25,7 +42,24 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss">
+ul li{
+  list-style: none;
+}
+
+ul li :hover{
+  color: white;
+}
+
+p{
+  color: #ababab;
+  line-height: 25%;
+}
+
+.link{
+  text-decoration: none;
+}
+
 .footer{
     margin-top: 40px;
     background-color: #FFBBBB;
@@ -34,13 +68,13 @@ export default {};
 }
 
 .cards{
-    align-items: center;
+    align-items: start;
     display:flex;
     justify-content: space-around; 
     color: white;
 }
 
-.we{
+.footer-navigation{
     position: relative;
     display: inline-block;
     padding: 2rem 1.5rem;
