@@ -1,18 +1,26 @@
 <template>
   <v-app>
+    <h1>Carrito en proceso</h1>
     <Header/>
-    
-  </v-app>  
+    <Footer/>
+  </v-app>
 </template>
 
 <script>
-import Header from "../components/general/Header.vue";
+import Header from "@/components/general/Header.vue";
+import Footer from "@/components/general/Footer.vue";
 
 export default {
- components: {
-   Header,
- }
+
+  components: {
+    Header,
+    Footer,
+  }
+
 };
+
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+
+</style>

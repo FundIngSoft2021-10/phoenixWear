@@ -7,7 +7,7 @@ import Contact from "../views/Contact";
 import Details from "../views/Details";
 import Questions from "../views/Questions";
 import Error from "../views/Error404";
-import MiCarrito from "../views/MiCarrito";
+import MiCarrito from "@/views/MiCarrito";
 import MiCuenta from "../views/MiCuenta";
 import AddProduct from "../views/AddProduct";
 import UpdateProduct from "../views/UpdateProduct";

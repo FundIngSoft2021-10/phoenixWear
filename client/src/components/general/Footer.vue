@@ -25,12 +25,13 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss">
 .footer{
   margin-top: 40px;
   background-color: #FFBBBB;
   padding: 2rem 2rem;
   font-family: $montserratRegular-font;
+;
 }
 
 .cards{
