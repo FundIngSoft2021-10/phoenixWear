@@ -3,7 +3,7 @@
     <div class="cards">
       <div class="footer-navigation">
         <h2>Phoenix Wear</h2>
-        <ul class="nav-footer">
+        <ul class="nav-footer" style="padding-left: 0px;">
           <li>
             <router-link class="link" to="/"><p>Trending</p></router-link>
           </li>
@@ -44,7 +44,8 @@ export default {};
 
 <style lang="scss">
 ul li{
-  list-style: none;
+  padding: 0px;
+  list-style-type: none;
 }
 
 ul li :hover{
