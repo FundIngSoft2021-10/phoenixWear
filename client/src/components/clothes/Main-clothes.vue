@@ -22,7 +22,7 @@
           </v-card-subtitle>
           <v-card-text>
             {{ product.information.short_description }}<br />
-            {{ `Tags : ${product.tags.toString()}` }}
+            {{ `Tags: ${product.tags.toString()}` }}
           </v-card-text>
 
           <v-card-actions>
