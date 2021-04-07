@@ -17,12 +17,12 @@
             {{ product.information.name }}
           </v-card-title>
 
-          <v-card-subtitle>
-            {{ formatPrice(product.information.price) }}
+          <v-card-subtitle class="sub">
+            {{ `Precio: ${formatPrice(product.information.price)}` }}
           </v-card-subtitle>
-          <v-card-text>
+          <v-card-text class="texto">
+            {{ `Talla: ${product.garment.size}` }}<br/>
             {{ product.information.short_description }}<br />
-            {{ `Tags: ${product.tags.toString()}` }}
           </v-card-text>
 
           <button>Agregar al carrito</button>
@@ -42,8 +42,6 @@
         </v-card>
       </v-col>
     </v-row>
-
-    <!-- <img src="../assets/imgs/logo.png" alt="Phoenix-logo" height="200" width="200" /> -->
   </v-main>
 </template>
 
@@ -76,6 +74,13 @@ export default {
 .nombre{
   height: 100px;
   text-align: left;
+}
+.sub{
+  text-align: left;
+}
+.texto{
+  text-align: left;
+  height: 60px;
 }
 button{
   margin-top: 20px;
