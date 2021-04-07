@@ -1,7 +1,7 @@
 <template>
   <main>
     <section class="col1" id="formul">
-      <form method="POST" action="#">
+      <form method="POST" action="https://formspree.io/f/mrgrgarb">
         <label for="nombre" class="rotulo">NOMBRE</label><br />
         <input
           type="text"
