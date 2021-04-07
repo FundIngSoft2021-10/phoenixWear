@@ -1,6 +1,6 @@
 <template>
   <v-main class="product-section">
-    <v-row justify="center">
+    <v-row justify="left" class="fila">
       <v-col
         cols="4"
         v-for="(product, index) in products"
@@ -80,5 +80,7 @@ export default {
 <style lang="scss" scoped>
 .product-section {
   margin-top: 5rem;
+}
+.fila{
 }
 </style>

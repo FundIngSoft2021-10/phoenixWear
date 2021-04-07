@@ -46,9 +46,8 @@ export default {
 }
 .product-section {
   margin-top: 5rem;
-  //background-color: red;
-  margin-left: 11%;
-  margin-right: 11%;
+  margin-left: 9%;
+  margin-right: 9%;
 }
 .loader {
   height: 50vh;
