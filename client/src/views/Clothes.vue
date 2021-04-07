@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <Header />
     <div v-if="!isLoaded" class="loader">
       <v-progress-circular
@@ -39,8 +39,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+*{
+  box-sizing: border-box;
+  font-family: $montserratRegular-font;
+  text-align: left;
+}
 .product-section {
   margin-top: 5rem;
+  //background-color: red;
+  margin-left: 11%;
+  margin-right: 11%;
 }
 .loader {
   height: 50vh;
