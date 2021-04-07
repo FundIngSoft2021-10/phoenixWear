@@ -2,18 +2,18 @@
   <v-main class="product-section">
     <v-row justify="left" class="fila">
       <v-col
-        cols="4"
+        cols="3"
         v-for="(product, index) in products"
         :key="(product, index)"
       >
-        <v-card class="mx-auto" max-width="344">
+        <v-card class="mx-auto" max-width="350">
           <v-img
             src="https://santamariastore.com/wp-content/uploads/2020/06/63A1E028-AEE5-41B0-9B8F-41ED0A1A2B47-570x760.jpg"
-            height="300px"
-            width="760px"
+            height="400px"
+            width="750px"
           ></v-img>
 
-          <v-card-title>
+          <v-card-title class="nombre">
             {{ product.information.name }}
           </v-card-title>
 
@@ -81,6 +81,7 @@ export default {
 .product-section {
   margin-top: 5rem;
 }
-.fila{
+.nombre{
+  height: 100px;
 }
 </style>
