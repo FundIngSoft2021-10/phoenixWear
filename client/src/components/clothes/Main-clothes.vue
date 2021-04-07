@@ -14,7 +14,7 @@
           ></v-img>
 
           <v-card-title class="nombre">
-            {{ product.information.name }}
+            <router-link class="link" to="#">{{ product.information.name }}</router-link>
           </v-card-title>
 
           <v-card-subtitle class="sub">
@@ -75,6 +75,10 @@ export default {
   height: 100px;
   text-align: left;
 }
+a.link{
+  text-decoration: none;
+  color: #2C363E; 
+}
 .sub{
   text-align: left;
 }
@@ -89,5 +93,8 @@ button{
   padding: 6px;
   background-color: #FF8585;
   color: white,
+}
+router-link{
+  text-decoration: none;
 }
 </style>
