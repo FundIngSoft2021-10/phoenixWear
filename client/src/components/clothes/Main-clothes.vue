@@ -25,18 +25,9 @@
             {{ `Tags: ${product.tags.toString()}` }}
           </v-card-text>
 
+          <button>Agregar al carrito</button>
+
           <v-card-actions>
-            <v-btn color="phoenix" text>
-              Explorar
-            </v-btn>
-
-            <v-spacer></v-spacer>
-
-            <v-btn icon @click="show = !show">
-              <v-icon>{{
-                show ? "mdi-chevron-up" : "mdi-chevron-down"
-              }}</v-icon>
-            </v-btn>
           </v-card-actions>
 
           <v-expand-transition>
@@ -80,8 +71,18 @@ export default {
 <style lang="scss" scoped>
 .product-section {
   margin-top: 5rem;
+  text-align: center;
 }
 .nombre{
   height: 100px;
+  text-align: left;
+}
+button{
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 6px;
+  background-color: #FF8585;
+  color: white,
 }
 </style>
