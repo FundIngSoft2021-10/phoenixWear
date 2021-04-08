@@ -5,19 +5,19 @@
         <h2>Phoenix Wear</h2>
         <ul class="nav-footer" style="padding-left: 0px;">
           <li>
-            <router-link class="link" to="/"><p>Trending</p></router-link>
+            <router-link class="link" to="/"><p class="text-footer-nav">Trending</p></router-link>
           </li>
           <li>
-            <router-link class="link" to="/ropa"><p>Ropa</p></router-link>
+            <router-link class="link" to="/ropa"><p class="text-footer-nav">Ropa</p></router-link>
           </li>
           <li>
-            <router-link class="link" to="/preguntas"><p>Q&A</p></router-link>
+            <router-link class="link" to="/preguntas"><p class="text-footer-nav">Q&A</p></router-link>
           </li>
           <li>
-            <router-link class="link" to="/nosotros"><p>Nosotros</p></router-link>
+            <router-link class="link" to="/nosotros"><p class="text-footer-nav">Nosotros</p></router-link>
           </li>
           <li>
-            <router-link class="link" to="/contacto"><p>Contacto</p></router-link>
+            <router-link class="link" to="/contacto"><p class="text-footer-nav">Contacto</p></router-link>
           </li>
         </ul>
       </div>
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="License">
-    <i class="far fa-copyright"> All rights reserved</i>
+      <i class="far fa-copyright"></i><p>All rights reserved</p>
     </div>
   </div>
 </template>
@@ -52,7 +52,7 @@ ul li :hover{
   color: white;
 }
 
-p{
+.text-footer-nav{
   color: #ababab;
   line-height: 25%;
 }
@@ -112,11 +112,13 @@ p{
 }
 
 .License{
+  display: inline-block;
+  padding-left: 50px;
+  justify-content: center;
   margin-top: 1rem;
-  padding-left: 65px;
-  align-items: center;
+  text-align: center;
+  align-items: start;
   display:flex;
-  justify-content: space-around;
   color: white;
 }
 
