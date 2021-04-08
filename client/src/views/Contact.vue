@@ -1,19 +1,22 @@
 <template>
-    <v-app>
-        <Header/>
-    </v-app>
+  <div>
+    <Header />
+    <Contact />
+  </div>
 </template>
 
 <script>
 import Header from "../components/general/Header.vue";
+import Contact from "../components/contact/Main-contact";
 
 export default {
- components: {
-   Header,
- }
+  components: {
+    Header,
+    Contact,
+  },
+  data() {
+    return {};
+  },
 };
 </script>
-
-<style>
-
-</style>
+<style scoped lang="scss"></style>
