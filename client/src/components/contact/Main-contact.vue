@@ -41,7 +41,7 @@
         >
       </p>
       <p>
-        Tambien puedes escribirnos a: pwsupport@phoenixwear.com
+        Tambien puedes escribirnos a: phoenixwear.co@gmail.com
       </p>
       <p>
         Contáctanos a nuestro WhatsApp Business +(57) 574-1254
@@ -57,20 +57,17 @@ export default {};
 <style scoped lang="scss">
 * {
   box-sizing: border-box;
-  font-family: $montserratRegular-font;
+  font-family: $montserratSemiBold-font;
   text-align: left;
 }
 main {
   margin-top: 5rem;
+  display: flex;
 }
 .col1 {
-  float: left;
-  padding-left: 11%;
   width: 50%;
 }
 .col2 {
-  float: left;
-  padding-right: 11%;
   width: 50%;
 }
 input {

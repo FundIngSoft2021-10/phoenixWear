@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Header />
-    <Contact />
+    <Contact class="width" />
     <Footer />
   </v-app>
 </template>
@@ -21,4 +21,10 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.width {
+  width: 68vw;
+  margin: auto;
+  margin-top: 8rem;
+}
+</style>
