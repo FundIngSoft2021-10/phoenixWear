@@ -1,7 +1,7 @@
 <template>
   <v-app>
-   <Header/>
-   <!-- <img src="../assets/imgs/logo.png" alt="Phoenix-logo" height="200" width="200" /> --> 
+    <Header />
+    <!-- <img src="../assets/imgs/logo.png" alt="Phoenix-logo" height="200" width="200" /> -->
   </v-app>
 </template>
 
@@ -9,13 +9,10 @@
 import Header from "../components/general/Header.vue";
 
 export default {
- components: {
-   Header,
- }
+  components: {
+    Header,
+  },
 };
-
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
