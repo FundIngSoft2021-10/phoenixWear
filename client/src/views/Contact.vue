@@ -23,8 +23,8 @@ export default {
 </script>
 <style scoped lang="scss">
 .width {
-  width: 68vw;
+  width: 70vw;
   margin: auto;
-  margin-top: 8rem;
+  padding-top: 0;
 }
 </style>

@@ -43,7 +43,7 @@ export default {
 .width {
   width: 70vw;
   margin: auto;
-  padding-top: 5rem;
+  padding-top: 4rem;
 }
 .questions {
   padding-top: 2rem;
