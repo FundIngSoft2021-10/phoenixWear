@@ -1,13 +1,9 @@
 <template>
-  <v-app>Error</v-app>
+  <div>Error</div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
-</style>
+<style></style>

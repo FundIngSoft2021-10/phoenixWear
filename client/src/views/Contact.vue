@@ -1,18 +1,20 @@
 <template>
-  <div>
+  <v-app>
     <Header />
     <Contact />
-  </div>
+    <Footer />
+  </v-app>
 </template>
 
 <script>
 import Header from "../components/general/Header.vue";
 import Contact from "../components/contact/Main-contact";
-
+import Footer from "../components/general/Footer";
 export default {
   components: {
     Header,
     Contact,
+    Footer,
   },
   data() {
     return {};

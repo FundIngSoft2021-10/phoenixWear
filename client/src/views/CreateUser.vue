@@ -1,17 +1,20 @@
 <template>
-  <div>
+  <v-main>
     <Header />
     <UserForm :user_info="user_info" :isNewUser="true" />
-  </div>
+    <Footer />
+  </v-main>
 </template>
 
 <script>
 import Header from "../components/general/Header";
 import UserForm from "../components/forms/CreateUser";
+import Footer from "../components/general/Footer";
 export default {
   components: {
     Header,
     UserForm,
+    Footer,
   },
   data() {
     return {

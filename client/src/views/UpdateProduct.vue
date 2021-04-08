@@ -1,17 +1,20 @@
 <template>
-  <div>
+  <v-main>
     <Header />
     <ProductForm :product_info="product_info" :isNewProduct="false" />
-  </div>
+    <Footer />
+  </v-main>
 </template>
 
 <script>
 import Header from "../components/general/Header";
 import ProductForm from "../components/forms/ProductForm";
+import Footer from "../components/general/Footer";
 export default {
   components: {
     Header,
     ProductForm,
+    Footer,
   },
   data() {
     return {

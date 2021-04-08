@@ -1,16 +1,18 @@
 <template>
-  <v-app>
-    <Header/>
-  </v-app>
+  <v-main>
+    <Header />
+    <Footer />
+  </v-main>
 </template>
 
 <script>
 import Header from "../components/general/Header.vue";
-
+import Footer from "../components/general/Footer";
 export default {
- components: {
-   Header,
- }
+  components: {
+    Header,
+    Footer,
+  },
 };
 </script>
 
