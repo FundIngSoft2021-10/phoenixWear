@@ -1,20 +1,23 @@
 <template>
-  <v-app>
+  <v-main>
     <Header />
     <AboutUsInfo class="width" />
     <AboutUsTeam class="team width" />
-  </v-app>
+    <Footer />
+  </v-main>
 </template>
 
 <script>
 import Header from "../components/general/Header.vue";
 import AboutUsInfo from "../components/aboutUS/AboutUsInfo";
 import AboutUsTeam from "../components/aboutUS/AboutUsTeam";
+import Footer from "../components/general/Footer";
 export default {
   components: {
     Header,
     AboutUsInfo,
     AboutUsTeam,
+    Footer,
   },
 };
 </script>
