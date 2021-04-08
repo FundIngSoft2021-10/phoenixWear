@@ -54,7 +54,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  font-family: $montserratRegular-font;
+  font-family: $montserratSemiBold-font;
   .router-link-exact-active {
     color: #ff8585;
   }
@@ -94,7 +94,7 @@ header {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  font-family: $montserratRegular-font;
+  font-family: $montserratSemiBold-font;
   .router-link-exact-active {
     color: #ff8585;
   }
