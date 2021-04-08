@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="margin">
     <header>
       <div class="MC">
         <router-link class="MC" to="/cuenta">Mi cuenta </router-link>
@@ -48,7 +48,9 @@ h1 {
   justify-content: center;
   display: flex;
 }
-
+.margin {
+  margin-top: 1rem;
+}
 nav {
   display: flex;
   justify-content: space-around;
