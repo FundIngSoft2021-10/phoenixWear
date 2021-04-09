@@ -70,20 +70,21 @@ export default {
     return {
       text_rule: [
         (value) => !!value || "El campo es obligatorio",
-        (value) =>
-          value.length < 20 || "El campo debe ser menor a 20 caracteres",
+        (v) =>
+          (v && v.length <= 20) ||
+          "El campo debe de tener menos de 20 caracteres",
       ],
       description_rule: [
         (value) => !!value || "El campo es obligatorio",
-        (value) =>
-          value.length < 500 ||
-          "El nombre del producto debe ser menor a 500 caracteres",
+        (v) =>
+          (v && v.length <= 500) ||
+          "El campo debe de tener menos de 500 caracteres",
       ],
       email_rule: [
         (value) => !!value || "E-mail is required",
-        (value) =>
-          value.length < 100 ||
-          "El nombre del producto debe ser menor a 500 caracteres",
+        (v) =>
+          (v && v.length <= 100) ||
+          "El campo debe de tener menos de 100 caracteres",
         (value) =>
           /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
             value

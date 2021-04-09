@@ -8,7 +8,8 @@
       <h1>Phoenix Wear</h1>
       <div class="Carrito">
         <router-link class="Carrito" to="/carrito">Mi carrito </router-link
-        ><i class="fas fa-shopping-cart"></i><i class="fas fa-search"></i>
+        ><i class="fas fa-shopping-cart"></i>
+        <i @click="changeMode()" class="fas fa-search"></i>
       </div>
     </header>
 
@@ -36,7 +37,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    changeMode() {
+      this.$store.commit("change_searchBar_state");
+      this.is_searchBar_open = this.$store.getters.get_is_searchBar_open;
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
