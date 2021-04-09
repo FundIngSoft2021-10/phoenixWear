@@ -42,7 +42,6 @@ export default {
     changeMode() {
       this.$store.commit("change_searchBar_state");
       this.is_searchBar_open = this.$store.getters.get_is_searchBar_open;
-      console.log(this.is_searchBar_open);
     },
   },
 };

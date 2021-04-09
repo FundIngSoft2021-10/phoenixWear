@@ -1,50 +1,52 @@
 <template>
-  <v-row>
-    <v-col col="4">
-      <v-autocomplete
-        v-model="modelP"
-        :items="items"
-        :loading="isLoading"
-        :search-input.sync="searchP"
-        hide-no-data
-        hide-selected
-        item-text="name"
-        item-value="API"
-        label="Public APIs"
-        placeholder="Buscar producto"
-        prepend-icon="mdi-database-search"
-        return-object
-      ></v-autocomplete>
-    </v-col>
-  </v-row>
+  <section>
+    <v-row justify="center">
+      <v-col cols="4">
+        <v-autocomplete
+          v-model="model"
+          :items="items"
+          :loading="isLoading"
+          :search-input.sync="search"
+          hide-no-data
+          hide-selected
+          item-text="name"
+          item-value="API"
+          label="Buscador de producto"
+          placeholder="Buscar producto"
+          prepend-icon="mdi-magnify"
+          color="phoenix"
+        ></v-autocomplete>
+      </v-col>
+      <div v-if="model != ''" class="icons">
+        <i @click="model = ''" class="fas fa-times"></i>
+        <router-link :to="`/products/${model.replace(/\s/g, '')}`"
+          ><i class="far fa-paper-plane"></i
+        ></router-link>
+      </div>
+    </v-row>
+  </section>
 </template>
 
 <script>
 import axios from "axios";
 export default {
   data: () => ({
-    descriptionLimit: 60,
-    entries: [],
     products: [],
     isLoading: false,
-    model: null,
-    modelP: null,
+    model: "",
     search: null,
-    searchP: null,
   }),
 
   computed: {
     items() {
       return this.products.map((product) => {
         const name = product.information.name;
-        console.log(Object.assign({}, product, { name }));
         return Object.assign({}, product, { name });
       });
     },
   },
-
   watch: {
-    searchP() {
+    search() {
       if (this.products.length > 0) return;
 
       // Items have already been requested
@@ -65,4 +67,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.icons {
+  display: flex;
+  align-items: center;
+  i {
+    padding: 0.5rem;
+    color: $phoenix-color;
+  }
+}
+</style>
