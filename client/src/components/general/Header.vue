@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="margin">
     <header>
       <div class="MC">
         <router-link class="MC" to="/cuenta">Mi cuenta </router-link>
@@ -8,7 +8,8 @@
       <h1>Phoenix Wear</h1>
       <div class="Carrito">
         <router-link class="Carrito" to="/carrito">Mi carrito </router-link
-        ><i class="fas fa-shopping-cart"></i><i class="fas fa-search"></i>
+        ><i class="fas fa-shopping-cart"></i>
+        <i @click="changeMode()" class="fas fa-search"></i>
       </div>
     </header>
 
@@ -36,7 +37,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    changeMode() {
+      this.$store.commit("change_searchBar_state");
+      this.is_searchBar_open = this.$store.getters.get_is_searchBar_open;
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -48,13 +56,15 @@ h1 {
   justify-content: center;
   display: flex;
 }
-
+.margin {
+  margin-top: 1rem;
+}
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  font-family: $montserratRegular-font;
+  font-family: $montserratSemiBold-font;
   .router-link-exact-active {
     color: #ff8585;
   }
@@ -94,7 +104,7 @@ header {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  font-family: $montserratRegular-font;
+  font-family: $montserratSemiBold-font;
   .router-link-exact-active {
     color: #ff8585;
   }

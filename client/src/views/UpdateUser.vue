@@ -1,17 +1,23 @@
 <template>
-  <div>
+  <v-main>
     <Header />
+    <SearchBar v-if="is_searchBar_open" />
     <UserForm :user_info="user_info" :isNewUser="false" />
-  </div>
+    <Footer />
+  </v-main>
 </template>
 
 <script>
 import Header from "../components/general/Header";
 import UserForm from "../components/forms/CreateUser";
+import Footer from "../components/general/Footer";
+import SearchBar from "@/components/general/SearchBar";
 export default {
   components: {
     Header,
     UserForm,
+    Footer,
+    SearchBar,
   },
   data() {
     return {
@@ -25,6 +31,11 @@ export default {
         img: null,
       },
     };
+  },
+  computed: {
+    is_searchBar_open: function() {
+      return this.$store.getters.get_is_searchBar_open;
+    },
   },
 };
 </script>
