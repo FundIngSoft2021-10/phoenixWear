@@ -51,4 +51,5 @@ body{
 .AddToCart:hover::before{
     height: 0%;
 }
+
 </style>
