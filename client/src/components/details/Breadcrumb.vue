@@ -62,4 +62,5 @@ export default {
     .breadcrumbs_link--active {
         color:#FF8585;
     }
+    
 </style>
