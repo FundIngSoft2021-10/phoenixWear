@@ -1,29 +1,17 @@
 const express = require("express");
 const router = new express.Router();
 
-const Product = require("../models/products");
+const getController = require("../controllers/get_products");
+const postController = require("../controllers/post_products");
 
-router.get("/", async(req, res) =>{
-    try {
-        const product = await Product.find();
-        if (!product) {
-            return res.status(400).send();
-        }
-        res.send({
-            product,
-        });
-    } catch (error){
-        res.status(500).send();
-    }
-});
+router.get("/", getController.getProducts);
+router.get("/findById/:id", getController.findById);
+router.get("/findByCategory/:category", getController.findByCategory);
+router.get("/findBySize/:size", getController.findBySize);
+router.get("/findByTags/:tag", getController.findByTags);
+router.get("/findByIDSeller/:id", getController.findByIDSeller);
+router.get("/findByIDBuyer/:id", getController.findByIDBuyer);
 
-router.post("/", async(req, res) =>{
-    try {
-        const product = await new Product(req.body).save();
-        res.status(201).send(product);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-});
+router.post("/", postController.postProduct);
 
 module.exports = router;

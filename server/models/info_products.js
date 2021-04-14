@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const info_ProductSchema = new Schema({
+    date: {
+        type: Date,
+        default: Date.now,
+    },
     status: {
         type: String,
         enum: ["Disponible", "Enviado", "Entregado", "Finalizado"],
@@ -31,7 +35,11 @@ const info_ProductSchema = new Schema({
     premium: {
         type: Boolean,
         default: false,
-    }
+    },
+    photo: [{
+        type: Buffer,
+        required: true,
+    }]
 });
 
 module.exports = mongoose.model('InfoProduct', info_ProductSchema);
