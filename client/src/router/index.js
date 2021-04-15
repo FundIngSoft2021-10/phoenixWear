@@ -4,7 +4,7 @@ import Trending from "../views/Trending";
 import About from "../views/AboutUs";
 import Clothes from "../views/Clothes";
 import Contact from "../views/Contact";
-import Details from "../views/Details";
+import Details from "../views/ProductDetail";
 import Questions from "../views/Questions";
 import Error from "../views/Error404";
 import MiCarrito from "../views/MiCarrito";

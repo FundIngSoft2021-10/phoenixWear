@@ -1,121 +1,83 @@
 <template>
-<body>
-   <h3 > Articulo </h3>
-   <h4 class="Price"> $precio IVA incluido </h4>
-   <hr class="Line1"><br>
-   <h4 class="Info" > Información </h4>
-   <table>
-    <tr>
-    <td class="TablaInfo">TALLA: </td>
-    <td>M</td>
-    </tr>
-    <tr>
-    <td class="TablaInfo">COLOR: </td>
-    <td>Negro</td>
-    </tr>
-    <tr>
-    <td class="TablaInfo">CANTIDAD: </td>
-    <td>1</td>
-    </tr>
-   </table>
-   <br>
-   <hr class="Line2"><br>
+  <body>
+    <h2>{{ product.name }}</h2>
+    <h3 class="Price">{{ formatPrice(product.price) }} Phoenix Credits</h3>
+    <h3 class="Info line">Información</h3>
+    <table>
+      <tr>
+        <td class="TablaInfo">TALLA :</td>
+        <td>{{ product.size }}</td>
+      </tr>
+      <tr>
+        <td class="TablaInfo">COLOR :</td>
+        <td>{{ product.color }}</td>
+      </tr>
+      <tr>
+        <td class="TablaInfo">CANTIDAD :</td>
+        <td>1</td>
+      </tr>
+    </table>
 
-</body>
-
-  
+    <h3 class="Description line">Descripción</h3>
+    <p class="Des-info">
+      {{ product.description }}
+    </p>
+    <router-link class="AddToCart" to="/carrito">
+      <v-btn class="btn" color="phoenix" dark rounded>Añadir al Carrito</v-btn>
+    </router-link>
+  </body>
 </template>
 
 <script>
 export default {
-
-}
+  props: {
+    product: Object,
+  },
+  methods: {
+    formatPrice(x) {
+      x = Math.round((x + Number.EPSILON) * 100) / 100;
+      const parts = x.toString().split(".");
+      parts[0] = parts[0].replace(/(\d+)(?=\d{3})/g, "$ $1,");
+      return parts.join(".");
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
-    td{
-        text-align: center;
-    }
-    h3 {
-         
-      position: absolute;
-      width: 460px;
-      height: 30px;
-      left: 610px;
-      top: 215px;
-      font-family: $montserratSemiBold-font;
-      font-style: normal; 
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 37px;
+td {
+  text-align: center;
+}
+body {
+  font-family: $montserratRegular-font;
+}
+h2,
+h3,
+.Price,
+.Info,
+.TablaInfo {
+  font-family: $montserratSemiBold-font;
+  text-align: left;
+}
 
-      text-align: left;
-         
-    }
-    .Price {
-       position: absolute;
-      width: 460px;
-      height: 30px;
-      left: 610px;
-      top: 245px;
-      font-family: $montserratSemiBold-font;
-      font-style: normal; 
-      font-weight: 600;
-      font-size: 15px;
-      line-height: 50px;
+.Description,
+.Info {
+  padding-top: 0.8rem;
+}
+.Price {
+  margin-bottom: 1rem;
+}
+.Des-info,
+table {
+  padding: 1rem 0;
+}
 
-      text-align: left;
-    }
-    
-    .Line1 {
-       
-        position: absolute;
-        width: 697px;
-        height: 0px;
-        left: 610px;
-        top: 295px;
-        border: 1px solid rgba(255, 133, 133, 1);    
-        background-color: #FF8585;
-    }
-    .Info{
-    position: absolute;
-      width: 460px;
-      height: 30px;
-      left: 610px;
-      top: 300px;
-      font-family: $montserratSemiBold-font;
-      font-style: normal; 
-      font-weight: 600;
-      font-size: 17px;
-      line-height: 50px;
+.line {
+  width: 100%;
+  border-top: solid 2px $phoenix-color;
+}
 
-      text-align: left;
-    }
-
-    table{
-      position: absolute;
-      left: 610px;
-      top: 360px;
-      font-family: $montserratRegular-font;
-      font-style: normal; 
-      font-weight: 600;
-      font-size: 13px;
-      line-height: 50px;
-      
-    }
-    td{
-        text-align: left;
-        
-    }
-   
-    .Line2{
-            position: absolute;
-            width: 697px;
-            height: 0px;
-            left: 610px;
-            top: 550px; 
-            border: 1px solid rgba(255, 133, 133, 1);    
-            background-color: #FF8585;
-       }
-       
+td {
+  text-align: center;
+}
 </style>
