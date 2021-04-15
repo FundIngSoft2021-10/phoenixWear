@@ -13,6 +13,7 @@ import AddProduct from "../views/AddProduct";
 import UpdateProduct from "../views/UpdateProduct";
 import CreateUser from "../views/CreateUser";
 import UpdateUser from "../views/UpdateUser";
+import Status from "../views/OrderDetails";
 
 Vue.use(VueRouter);
 
@@ -70,6 +71,11 @@ const routes = [{
         path: "/crear-ususario",
         name: "Crear usuario",
         component: CreateUser,
+    },
+    {
+        path: "/producto/estado",
+        name: "estado de orden",
+        component: Status,
     },
     {
         path: "/user/actualizar-ususario",

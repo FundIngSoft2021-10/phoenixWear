@@ -3,7 +3,7 @@
     <Header />
     <SearchBar v-if="is_searchBar_open" />
     <section>
-      <Breadcrumb :productName="'PRODUCT NAME'" />
+      <Breadcrumb :productName="product.name" />
       <div class="detail-section">
         <div class="right-section">
           <Carousel :starting-image="0" :images="images" />
