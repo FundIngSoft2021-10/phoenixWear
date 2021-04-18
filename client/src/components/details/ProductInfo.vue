@@ -1,16 +1,18 @@
 <template>
   <body>
-    <h2>{{ product.name }}</h2>
-    <h3 class="Price">{{ formatPrice(product.price) }} Phoenix Credits</h3>
+    <h2>{{ product.information.name }}</h2>
+    <h3 class="Price">
+      {{ formatPrice(product.information.price) }} Phoenix Credits
+    </h3>
     <h3 class="Info line">Información</h3>
     <table>
       <tr>
         <td class="TablaInfo">TALLA :</td>
-        <td>{{ product.size }}</td>
+        <td>{{ product.garment.size }}</td>
       </tr>
       <tr>
         <td class="TablaInfo">COLOR :</td>
-        <td>{{ product.color }}</td>
+        <td>{{ product.information.color }}</td>
       </tr>
       <tr>
         <td class="TablaInfo">CANTIDAD :</td>
@@ -20,7 +22,7 @@
 
     <h3 class="Description line">Descripción</h3>
     <p class="Des-info">
-      {{ product.description }}
+      {{ product.information.description }}
     </p>
     <router-link class="AddToCart" to="/carrito">
       <v-btn class="btn" color="phoenix" dark rounded>Añadir al Carrito</v-btn>
