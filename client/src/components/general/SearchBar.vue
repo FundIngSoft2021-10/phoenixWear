@@ -19,7 +19,7 @@
       </v-col>
       <div v-if="model != ''" class="icons">
         <i @click="model = ''" class="fas fa-times"></i>
-        <router-link :to="`/products/${model.replace(/\s/g, '')}`"
+        <router-link :to="`/producto/${url._id}`"
           ><i class="far fa-paper-plane"></i
         ></router-link>
       </div>
@@ -43,6 +43,11 @@ export default {
         const name = product.information.name;
         return Object.assign({}, product, { name });
       });
+    },
+    url: function() {
+      if (this.model !== "")
+        return this.products.find((pro) => (pro.name = this.model));
+      return "";
     },
   },
   watch: {
