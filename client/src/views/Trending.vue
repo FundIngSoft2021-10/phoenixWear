@@ -10,18 +10,21 @@
       ></v-progress-circular>
     </div>
     <Trending v-else :products="products" />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "../components/general/Header.vue";
 import Trending from "../components/trending/Trending-main.vue";
+import Footer from "../components/general/Footer.vue";
 
 import axios from "axios";
 export default {
   components: {
     Header,
     Trending,
+    Footer,
   },
   data() {
     return {
