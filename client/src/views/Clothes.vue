@@ -1,6 +1,7 @@
 <template>
-  <div class="content">
+  <v-main class="content">
     <Header />
+    <SearchBar v-if="is_searchBar_open" />
     <div v-if="!isLoaded" class="loader">
       <v-progress-circular
         :size="100"
@@ -9,18 +10,23 @@
         indeterminate
       ></v-progress-circular>
     </div>
-    <Products v-else :products="products" />
-  </div>
+    <Products v-else class="width" :products="products" />
+    <Footer />
+  </v-main>
 </template>
 
 <script>
 import Header from "../components/general/Header.vue";
 import Products from "../components/clothes/Main-clothes.vue";
+import Footer from "../components/general/Footer";
+import SearchBar from "@/components/general/SearchBar";
 import axios from "axios";
 export default {
   components: {
     Header,
     Products,
+    SearchBar,
+    Footer,
   },
   data() {
     return {
@@ -35,20 +41,28 @@ export default {
       this.isLoaded = true;
     });
   },
+
+  computed: {
+    is_searchBar_open: function() {
+      return this.$store.getters.get_is_searchBar_open;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-*{
+* {
   box-sizing: border-box;
   font-family: $montserratRegular-font;
   text-align: left;
 }
-.product-section {
-  margin-top: 5rem;
-  margin-left: 9%;
-  margin-right: 9%;
+.width {
+  width: 70vw;
+  margin: auto;
+  font-family: $montserratRegular-font;
+  margin-top: 6rem;
 }
+
 .loader {
   height: 50vh;
   display: flex;

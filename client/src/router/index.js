@@ -4,7 +4,7 @@ import Trending from "../views/Trending";
 import About from "../views/AboutUs";
 import Clothes from "../views/Clothes";
 import Contact from "../views/Contact";
-import Details from "../views/Details";
+import Details from "../views/ProductDetail";
 import Questions from "../views/Questions";
 import Error from "../views/Error404";
 import MiCarrito from "../views/MiCarrito";
@@ -13,6 +13,7 @@ import AddProduct from "../views/AddProduct";
 import UpdateProduct from "../views/UpdateProduct";
 import CreateUser from "../views/CreateUser";
 import UpdateUser from "../views/UpdateUser";
+import Status from "../views/OrderDetails";
 
 Vue.use(VueRouter);
 
@@ -42,7 +43,7 @@ const routes = [{
         component: Questions,
     },
     {
-        path: "/detalles",
+        path: "/producto/:id",
         name: "Detalles",
         component: Details,
     },
@@ -70,6 +71,11 @@ const routes = [{
         path: "/crear-ususario",
         name: "Crear usuario",
         component: CreateUser,
+    },
+    {
+        path: "/producto/estado",
+        name: "estado de orden",
+        component: Status,
     },
     {
         path: "/user/actualizar-ususario",
