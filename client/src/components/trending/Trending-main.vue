@@ -3,7 +3,7 @@
     <v-row justify="left" class="fila">
       <v-col
           cols="4"
-          v-for="(product, index) in products"
+          v-for="(product, index) in products.slice(0,6)"
           :key="(product, index)"
       >
         <v-card class="mx-auto" max-width="350">
@@ -17,13 +17,15 @@
             <router-link class="link" to="#">{{ product.information.name }}</router-link>
           </v-card-title>
 
-          <v-card-subtitle class="sub">
-            {{ `Precio: ${formatPrice(product.information.price)}` }}
-          </v-card-subtitle>
           <v-card-text class="texto">
             {{ `Talla: ${product.garment.size}` }}<br/>
             {{ product.information.short_description }}<br />
           </v-card-text>
+
+          <v-card-subtitle class="sub">
+            {{ `Precio: ${formatPrice(product.information.price)}` }}
+          </v-card-subtitle>
+
 
           <button>Agregar al carrito</button>
 
@@ -80,7 +82,7 @@ a.link{
   color: #2C363E;
 }
 .sub{
-  text-align: left;
+  text-align: center;
 }
 .texto{
   text-align: left;
