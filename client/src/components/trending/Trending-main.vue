@@ -1,150 +1,100 @@
 <template>
-  <v-app>
-    <div class="wrapper">
-      <div class="product-img">
-        <img src="../../assets/imgs/testImage/cashmereExample2.jpg" height="420" width="327"/>
-      </div>
-      <div class="product-info">
-        <div class="product-text">
-          <h1>Cashmere</h1>
-          <h2>by studio and friends</h2>
-          <p>Harvest Vases are a reinterpretation<br> of peeled fruits and vegetables as<br> functional objects. The surfaces<br> appear to be sliced and pulled aside,<br> allowing room for growth. </p>
-        </div>
-        <div class="product-price-btn">
-          <p><span>78</span>$</p>
-          <button type="button">buy now</button>
-        </div>
-      </div>
-    </div>
-  </v-app>
+  <v-main class="product-section">
+    <v-row justify="left" class="fila">
+      <v-col
+          cols="4"
+          v-for="(product, index) in products"
+          :key="(product, index)"
+      >
+        <v-card class="mx-auto" max-width="350">
+          <v-img
+              src="https://santamariastore.com/wp-content/uploads/2020/06/63A1E028-AEE5-41B0-9B8F-41ED0A1A2B47-570x760.jpg"
+              height="400px"
+              width="750px"
+          ></v-img>
+
+          <v-card-title class="nombre">
+            <router-link class="link" to="#">{{ product.information.name }}</router-link>
+          </v-card-title>
+
+          <v-card-subtitle class="sub">
+            {{ `Precio: ${formatPrice(product.information.price)}` }}
+          </v-card-subtitle>
+          <v-card-text class="texto">
+            {{ `Talla: ${product.garment.size}` }}<br/>
+            {{ product.information.short_description }}<br />
+          </v-card-text>
+
+          <button>Agregar al carrito</button>
+
+          <v-card-actions>
+          </v-card-actions>
+
+          <v-expand-transition>
+            <div v-show="show">
+              <v-divider></v-divider>
+
+              <v-card-text>
+                {{ product.information.description }}
+              </v-card-text>
+            </div>
+          </v-expand-transition>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-main>
 </template>
 
 <script>
-
 export default {
-  components: {}
+  props: {
+    products: Array,
+  },
+  data() {
+    return {
+      show: false,
+    };
+  },
+  methods: {
+    formatPrice(x) {
+      x = Math.round((x + Number.EPSILON) * 100) / 100;
+      const parts = x.toString().split(".");
+      parts[0] = parts[0].replace(/(\d+)(?=\d{3})/g, "$ $1,");
+      return parts.join(".");
+    },
+  },
 };
 </script>
 
-<style>
-.wrapper {
-  position: absolute;
-  display: inline;
-  height: 210px;
-  width: 327px;
-  margin-left: 7%;
-  border-radius: 7px 7px 7px 7px;
+<style lang="scss" scoped>
+.product-section {
+  margin-top: 5rem;
+  text-align: center;
 }
-
-.product-img {
-  float: left;
-  height: 420px;
-  width: 327px;
+.nombre{
+  height: 100px;
+  text-align: left;
 }
-
-.product-img img {
-  border-radius: 7px;
-  position: relative;
+a.link{
+  text-decoration: none;
+  color: #2C363E;
 }
-
-.product-info{
-  display: none;
+.sub{
+  text-align: left;
 }
-
-.product-img:hover + .product-info{
-  display: inline;
-  position: absolute;
-  height: 420px;
-  width: 327px;
-  border-radius: 7px;
-  background-color: whitesmoke;
+.texto{
+  text-align: left;
+  height: 60px;
 }
-
-.product-text {
-  height: 300px;
-  width: 327px;
+button{
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 6px;
+  background-color: #FF8585;
+  color: white,
 }
-
-.product-text h1 {
-  margin: 0 0 0 38px;
-  padding-top: 52px;
-  font-size: 34px;
-  color: #474747;
-}
-
-.product-text h1,
-.product-price-btn p {
-  font-family: 'Bentham', serif;
-}
-
-.product-text h2 {
-  margin: 0 0 47px 38px;
-  font-size: 13px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: #d2d2d2;
-  letter-spacing: 0.2em;
-}
-
-.product-text p {
-  height: 125px;
-  margin: 0 0 0 38px;
-  font-family: 'Playfair Display', serif;
-  color: #8d8d8d;
-  line-height: 1.7em;
-  font-size: 15px;
-  font-weight: lighter;
-  overflow: hidden;
-}
-
-.product-price-btn {
-  height: 103px;
-  width: 327px;
-  margin-top: 17px;
-  position: relative;
-}
-
-.product-price-btn p {
-  display: inline-block;
-  position: absolute;
-  top: -13px;
-  height: 50px;
-  font-family: 'Trocchi', serif;
-  margin: 0 0 0 38px;
-  font-size: 28px;
-  font-weight: lighter;
-  color: #474747;
-}
-
-span {
-  display: inline-block;
-  height: 50px;
-  font-family: 'Suranna', serif;
-  font-size: 34px;
-}
-
-.product-price-btn button {
-  float: right;
-  display: inline-block;
-  height: 50px;
-  width: 176px;
-  margin: 0 40px 0 16px;
-  box-sizing: border-box;
-  border: transparent;
-  border-radius: 60px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #ffffff;
-  background-color: #9cebd5;
-  cursor: pointer;
-  outline: none;
-}
-
-.product-price-btn button:hover {
-  background-color: #79b0a1;
+router-link{
+  text-decoration: none;
 }
 </style>
