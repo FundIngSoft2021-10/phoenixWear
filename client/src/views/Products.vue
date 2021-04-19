@@ -35,12 +35,9 @@ export default {
       isLoaded: false,
     };
   },
-
   mounted() {
-    const url = `https://n4mbc432.herokuapp.com/products/findByCategory/${this.$route.params.category}`;
-
-    axios.get(url).then((response) => {
-      this.products = response.data.productByCategory;
+    axios.get("https://n4mbc432.herokuapp.com/products").then((response) => {
+      this.products = response.data.product;
       this.isLoaded = true;
     });
   },
@@ -64,7 +61,6 @@ export default {
   font-family: $montserratRegular-font;
   margin-top: 6rem;
 }
-
 .loader {
   height: 50vh;
   display: flex;

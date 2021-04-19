@@ -20,7 +20,22 @@
           <router-link class="link" to="/">Trending</router-link>
         </li>
         <li>
-          <router-link class="link" to="/ropa">Ropa</router-link>
+          <v-menu bottom :offset-y="true" open-on-hover :rounded="rounded">
+            <template v-slot:activator="{ on, attrs }">
+              <router-link class="link" to="/ropa">
+                <p v-bind="attrs" v-on="on">
+                  ROPA
+                </p>
+              </router-link>
+            </template>
+            <v-list>
+              <v-list-item v-for="(item, index) in items" :key="index" link>
+                <v-list-item-title>
+                  <a class="link" :href="`/ropa/${item}`">{{ item }}</a>
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </li>
         <li>
           <router-link class="link" to="/preguntas">Q&A</router-link>
@@ -38,6 +53,20 @@
 
 <script>
 export default {
+  data() {
+    return {
+      items: [
+        "Vestidos",
+        "Pantalones",
+        "Chaquetas",
+        "Zapatos",
+        "Blusas",
+        "Camisas",
+        "Accesorios",
+        "Sacos",
+      ],
+    };
+  },
   methods: {
     changeMode() {
       this.$store.commit("change_searchBar_state");
@@ -56,6 +85,15 @@ h1 {
   justify-content: center;
   display: flex;
 }
+.link {
+  text-decoration: none;
+  color: black;
+  font-family: $montserratSemiBold-font;
+  &:hover {
+    color: #ff8585;
+  }
+}
+
 .margin {
   margin-top: 1rem;
 }
@@ -66,7 +104,7 @@ nav {
   min-height: 8vh;
   font-family: $montserratSemiBold-font;
   .router-link-exact-active {
-    color: #ff8585;
+    color: #ff8585 !important;
   }
 }
 
@@ -84,7 +122,7 @@ ul li {
 }
 
 ul li :hover {
-  color: #ff8585;
+  color: #ff8585 !important;
 }
 
 .link {
