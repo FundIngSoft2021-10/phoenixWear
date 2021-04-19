@@ -25,9 +25,11 @@
         <div class="numTotal">{{ formatPrice(total) }}</div>
       </div>
 
-      <v-btn class="boton" rounded color="#ff8585" dark>
-        Continuar con envío
-      </v-btn>
+      <router-link to="/confirmacion">
+        <v-btn class="boton" rounded color="#ff8585" dark>
+          Continuar con envío
+        </v-btn>
+      </router-link>
     </v-card>
 
     <v-card elevation="0" max-width="710" class="productos">
