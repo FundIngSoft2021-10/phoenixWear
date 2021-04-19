@@ -10,7 +10,7 @@
         indeterminate
       ></v-progress-circular>
     </div>
-    <Trending v-else :products="products" />
+    <Trending v-else class="width" :products="products" />
     <Footer />
   </v-main>
 </template>
@@ -43,6 +43,9 @@ export default {
   mounted() {
     axios.get("https://n4mbc432.herokuapp.com/products").then((response) => {
       this.products = response.data.product;
+      this.products = this.products.filter(function(value) {
+        return value.information.premium;
+      });
       this.isLoaded = true;
     });
   },
@@ -55,11 +58,13 @@ export default {
   font-family: $montserratRegular-font;
   text-align: left;
 }
-.product-section {
-  margin-top: 5rem;
-  margin-left: 9%;
-  margin-right: 9%;
+.width {
+  width: 70vw;
+  margin: auto;
+  font-family: $montserratRegular-font;
+  margin-top: 6rem;
 }
+
 .loader {
   height: 50vh;
   display: flex;

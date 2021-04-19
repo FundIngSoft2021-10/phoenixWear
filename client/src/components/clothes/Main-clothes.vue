@@ -8,7 +8,8 @@
         ><router-link class="link" :to="`producto/${product._id}`">
           <v-card class="mx-auto" max-width="350">
             <v-img
-              src="https://santamariastore.com/wp-content/uploads/2020/06/63A1E028-AEE5-41B0-9B8F-41ED0A1A2B47-570x760.jpg"
+              :src="product.information.photo[0]"
+              :lazy-src="product.information.photo[0]"
               height="400px"
               width="750px"
             ></v-img>

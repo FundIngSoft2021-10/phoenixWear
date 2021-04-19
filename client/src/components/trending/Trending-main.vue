@@ -1,17 +1,18 @@
 <template>
   <v-main class="product-section">
-    <v-row class="fila">
+    <v-row justify="center" class="fila">
       <v-col
         cols="4"
         v-for="(product, index) in products"
         :key="(product, index)"
         ><router-link class="link" :to="`producto/${product._id}`">
           <v-card class="mx-auto card" max-width="350">
-            <div class="badge">Premium</div>
+            <div class="badge">HOT</div>
             <v-img
-              src="https://santamariastore.com/wp-content/uploads/2020/06/63A1E028-AEE5-41B0-9B8F-41ED0A1A2B47-570x760.jpg"
+              :src="product.information.photo[0]"
               height="400px"
               width="750px"
+              :lazy-src="product.information.photo[0]"
             ></v-img>
             <v-card-title class="nombre">
               {{ product.information.name }}
@@ -85,6 +86,7 @@ export default {
   background: red;
   color: #fff;
   padding: 3px 10px;
+  font-family: $montserratSemiBold-font;
 }
 .nombre {
   height: 100px;
@@ -105,5 +107,6 @@ a.link {
 }
 .btn {
   font-family: $montserratSemiBold-font;
+  z-index: 40;
 }
 </style>
