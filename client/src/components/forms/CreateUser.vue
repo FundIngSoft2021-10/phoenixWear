@@ -74,7 +74,7 @@
           rounded
           dark
           color="phoenix"
-          >Crear producto!</v-btn
+          >Enviar!</v-btn
         >
       </v-col>
     </v-row>

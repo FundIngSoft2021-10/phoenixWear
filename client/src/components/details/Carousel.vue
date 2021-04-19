@@ -82,8 +82,8 @@ span {
   color: $phoenix-color;
 }
 .mainImg {
-  height: 500px;
-  width: 500px;
+  height: 600px;
+  width: 400px;
   @media screen and (max-width: $breakpoint-tablet) {
     height: 300px;
     width: 300px;
@@ -91,7 +91,7 @@ span {
 }
 .thumbnails {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-direction: row;
 }
 .thumbnail-image {

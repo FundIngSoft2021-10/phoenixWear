@@ -8,7 +8,6 @@ import Details from "../views/ProductDetail";
 import Questions from "../views/Questions";
 import Error from "../views/Error404";
 import MiCarrito from "@/views/MiCarrito";
-import MiCuenta from "../views/MiCuenta";
 import AddProduct from "../views/AddProduct";
 import UpdateProduct from "../views/UpdateProduct";
 import CreateUser from "../views/CreateUser";
@@ -16,6 +15,7 @@ import UpdateUser from "../views/UpdateUser";
 import Status from "../views/OrderDetails";
 import Confirmation from "../views/PurchaseConfirmation";
 import Products from "../views/Products";
+import MyAccount from "../views/MyAccount";
 
 Vue.use(VueRouter);
 
@@ -62,7 +62,7 @@ const routes = [{
     {
         path: "/cuenta",
         name: "MiCuenta",
-        component: MiCuenta,
+        component: MyAccount,
     },
     {
         path: "/user/agregar-producto",
@@ -85,7 +85,7 @@ const routes = [{
         component: Status,
     },
     {
-        path: "/user/actualizar-ususario",
+        path: "/user/actualizar-usuario",
         name: "Actualizar usuario",
         component: UpdateUser,
     },
