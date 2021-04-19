@@ -37,9 +37,9 @@ const info_ProductSchema = new Schema({
         default: false,
     },
     photo: [{
-        type: Buffer,
+        type: String,
         required: true,
-    }]
+    }, ],
 });
 
-module.exports = mongoose.model('InfoProduct', info_ProductSchema);
+module.exports = mongoose.model("InfoProduct", info_ProductSchema);
