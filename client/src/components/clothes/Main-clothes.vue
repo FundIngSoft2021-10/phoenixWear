@@ -5,7 +5,7 @@
         cols="3"
         v-for="(product, index) in products"
         :key="(product, index)"
-        ><router-link class="link" :to="`producto/${product._id}`">
+        ><router-link class="link" :to="`../producto/${product._id}`">
           <v-card class="mx-auto" max-width="350">
             <v-img
               :src="product.information.photo[0]"

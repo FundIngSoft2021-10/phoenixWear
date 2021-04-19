@@ -15,6 +15,7 @@ import CreateUser from "../views/CreateUser";
 import UpdateUser from "../views/UpdateUser";
 import Status from "../views/OrderDetails";
 import Confirmation from "../views/PurchaseConfirmation";
+import Products from "../views/Products";
 
 Vue.use(VueRouter);
 
@@ -30,6 +31,11 @@ const routes = [{
     },
     {
         path: "/ropa",
+        name: "Ropa",
+        component: Products,
+    },
+    {
+        path: "/ropa/:category",
         name: "Ropa",
         component: Clothes,
     },
