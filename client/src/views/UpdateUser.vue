@@ -28,6 +28,8 @@ export default {
         department: "Bogota",
         city: "Bogota",
         phone: "300-478-8575",
+        email: "nelson.mosquera@javeriana.edu.co",
+        password: "prueba1234",
         img: null,
       },
     };

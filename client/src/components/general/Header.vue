@@ -20,7 +20,7 @@
           <router-link class="link" to="/">Trending</router-link>
         </li>
         <li>
-          <v-menu bottom :offset-y="true" open-on-hover :rounded="rounded">
+          <v-menu bottom :offset-y="true" open-on-hover rounded="rounded">
             <template v-slot:activator="{ on, attrs }">
               <router-link class="link" to="/ropa">
                 <p v-bind="attrs" v-on="on">
