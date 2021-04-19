@@ -14,6 +14,7 @@ import UpdateProduct from "../views/UpdateProduct";
 import CreateUser from "../views/CreateUser";
 import UpdateUser from "../views/UpdateUser";
 import Status from "../views/OrderDetails";
+import Confirmation from "../views/PurchaseConfirmation";
 
 Vue.use(VueRouter);
 
@@ -81,6 +82,11 @@ const routes = [{
         path: "/user/actualizar-ususario",
         name: "Actualizar usuario",
         component: UpdateUser,
+    },
+    {
+        path: "/confirmacion",
+        name: "confirmation",
+        component: Confirmation,
     },
     {
         path: "/*",
