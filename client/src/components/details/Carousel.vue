@@ -1,12 +1,7 @@
 <template>
   <div class="card-carousel">
     <div class="card-img">
-      <v-img
-        class="mainImg"
-        :lazy-src="currentImage"
-        :src="currentImage"
-        alt=""
-      >
+      <v-img class="mainImg" :lazy-src="currentImage" :src="currentImage">
         <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">
             <v-progress-circular
@@ -28,7 +23,7 @@
         :class="['thumbnail-image', activeImage == index ? 'active' : '']"
         @click="activateImage(index)"
       >
-        <img :src="image.thumb" width="100" height="100" />
+        <img :src="image" width="100" height="100" />
       </div>
     </div>
   </div>
@@ -44,7 +39,7 @@ export default {
   },
   computed: {
     currentImage() {
-      return this.images[this.activeImage].big;
+      return this.images[this.activeImage];
     },
   },
   methods: {
@@ -87,8 +82,8 @@ span {
   color: $phoenix-color;
 }
 .mainImg {
-  height: 400px;
-  width: 400px;
+  height: 500px;
+  width: 500px;
   @media screen and (max-width: $breakpoint-tablet) {
     height: 300px;
     width: 300px;
