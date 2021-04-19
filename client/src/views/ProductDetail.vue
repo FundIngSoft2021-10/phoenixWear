@@ -17,7 +17,7 @@
       />
       <div class="detail-section">
         <div class="right-section">
-          <Carousel :starting-image="0" :images="images" />
+          <Carousel :starting-image="0" :images="product.information.photo" />
         </div>
         <ProductInfo class="right-section" :product="product" />
       </div>

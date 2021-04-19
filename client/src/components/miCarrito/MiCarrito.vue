@@ -34,7 +34,7 @@
       <v-virtual-scroll :items="items" height="470" item-height="200">
         <template v-slot:default="{ item }">
           <v-list-item class="item">
-            <img src="../../assets/imgs/logo.png" height="100" width="100" />
+            <img :src="item.img" height="100" width="100" />
             <div class="prendaInfo">
               <router-link :to="`producto/${item._id}`" class="link">
                 <p>{{ item.name }}</p>
@@ -121,6 +121,7 @@ export default {
           _id: this.products[v]._id,
           name: this.products[v].information.name,
           price: this.products[v].information.price,
+          img: this.products[v].information.img,
           index: v,
         };
       });
