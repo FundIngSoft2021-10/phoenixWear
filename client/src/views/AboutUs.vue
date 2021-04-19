@@ -1,26 +1,26 @@
 <template>
-  <v-app>
+  <v-main>
     <Header />
     <SearchBar v-if="is_searchBar_open" />
-    <Contact class="width" />
+    <AboutUsInfo class="width" />
+    <AboutUsTeam class="team width" />
     <Footer />
-  </v-app>
+  </v-main>
 </template>
 
 <script>
 import Header from "../components/general/Header.vue";
-import Contact from "../components/contact/Main-contact";
+import AboutUsInfo from "../components/aboutUS/AboutUsInfo";
+import AboutUsTeam from "../components/aboutUS/AboutUsTeam";
 import Footer from "../components/general/Footer";
 import SearchBar from "@/components/general/SearchBar";
 export default {
   components: {
     Header,
-    Contact,
+    AboutUsInfo,
+    AboutUsTeam,
     SearchBar,
     Footer,
-  },
-  data() {
-    return {};
   },
   computed: {
     is_searchBar_open: function() {
@@ -29,10 +29,21 @@ export default {
   },
 };
 </script>
+
 <style scoped lang="scss">
 .width {
   width: 70vw;
   margin: auto;
-  padding-top: 0;
+  font-family: $montserratRegular-font;
+  @media screen and (max-width: $breakpoint-desktop) {
+    width: 90vw;
+  }
+  @media screen and (max-width: $breakpoint-tablet) {
+    width: 100vw;
+    margin: 0;
+  }
+}
+.team {
+  margin-top: 3rem;
 }
 </style>
