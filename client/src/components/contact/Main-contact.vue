@@ -32,12 +32,14 @@
               :rules="text_rule"
             />
             <v-text-field
+              name = "Email"
               :counter="100"
               label="Email"
               required
               :rules="email_rule"
             />
             <v-textarea
+              name = "Description"
               outlined
               no-resize
               rows="6"
