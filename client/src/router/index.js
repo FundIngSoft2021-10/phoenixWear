@@ -16,6 +16,7 @@ import Status from "../views/OrderDetails";
 import Confirmation from "../views/PurchaseConfirmation";
 import Products from "../views/Products";
 import MyAccount from "../views/MyAccount";
+import { authGuard } from "../auth/authGuard";
 
 Vue.use(VueRouter);
 
@@ -63,6 +64,7 @@ const routes = [{
         path: "/cuenta",
         name: "MiCuenta",
         component: MyAccount,
+        beforeEnter: authGuard
     },
     {
         path: "/user/agregar-producto",

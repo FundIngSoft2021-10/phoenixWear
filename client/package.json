@@ -8,11 +8,13 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "@auth0/auth0-spa-js": "^1.15.0",
         "@babel/polyfill": "^7.4.4",
         "axios": "^0.21.1",
         "connect-history-api-fallback": "^1.6.0",
         "core-js": "^3.6.5",
         "express": "^4.17.1",
+        "express-openid-connect": "^2.3.1",
         "express-sslify": "^1.2.0",
         "node-sass": "^5.0.0",
         "sass-loader": "^10.1.0",
@@ -28,7 +30,7 @@
         "@vue/cli-plugin-eslint": "~4.5.0",
         "@vue/cli-plugin-router": "^4.5.11",
         "@vue/cli-plugin-vuex": "^4.5.11",
-        "@vue/cli-service": "~4.5.0",
+        "@vue/cli-service": "^4.5.12",
         "babel-eslint": "^10.1.0",
         "eslint": "^6.7.2",
         "eslint-plugin-vue": "^6.2.2",
