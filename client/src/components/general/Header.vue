@@ -2,14 +2,14 @@
   <div class="margin">
     <header>
       <div class="MC">
+        <router-link class="MC" to="/cuenta">Mi cuenta </router-link>
+        <i class="fas fa-user-alt"></i> <i class="fas fa-bell"></i>
         <div v-if="!$auth.loading">
           <!-- show login when not authenticated -->
           <!-- button v-if="!$auth.isAuthenticated" @click="login">Log in</button -->
           <!-- show logout when authenticated -->
-          <button v-if="$auth.isAuthenticated" @click="logout">Log out</button>
+          <button class="auth" v-if="$auth.isAuthenticated" @click="logout">Log out</button>
         </div>
-        <router-link class="MC" to="/cuenta">Mi cuenta </router-link>
-        <i class="fas fa-user-alt"></i> <i class="fas fa-bell"></i>
       </div>
       <h1>Phoenix Wear</h1>
       <div class="Carrito">
@@ -171,6 +171,10 @@ header {
   margin-top: 30px;
   text-decoration: none;
   color: #2c363e;
+}
+
+.auth {
+  margin-left: 3%;
 }
 
 .MC :hover {
