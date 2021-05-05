@@ -44,10 +44,16 @@ export default {
         return Object.assign({}, product, { name });
       });
     },
-    url: function() {
-      if (this.model !== "")
-        return this.products.find((pro) => (pro.name = this.model));
-      return "";
+    url() {
+      if (this.model !== "") {
+        this.products.forEach((product) => {
+          if (product.information.name === this.model) {
+            console.log(product._id);
+            return product._id;
+          }
+        });
+      }
+      return this.products.find((pro) => pro.information.name == this.model);
     },
   },
   watch: {

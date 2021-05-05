@@ -4,7 +4,16 @@ const Schema = mongoose.Schema;
 const garmentSchema = new Schema({
     type_garment: {
         type: String,
-        enum: ["Vestidos", "Pantalones", "Chaquetas", "Zapatos", "Blusas", "Camisas", "Accesorios"],
+        enum: [
+            "Vestidos",
+            "Pantalones",
+            "Chaquetas",
+            "Zapatos",
+            "Blusas",
+            "Camisas",
+            "Accesorios",
+            "Sacos",
+        ],
         required: true,
     },
     size: {
@@ -16,4 +25,4 @@ const garmentSchema = new Schema({
     },
 });
 
-module.exports = mongoose.model('Garment', garmentSchema);
+module.exports = mongoose.model("Garment", garmentSchema);

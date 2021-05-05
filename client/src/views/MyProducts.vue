@@ -2,26 +2,6 @@
   <v-main>
     <Header />
     <SearchBar v-if="is_searchBar_open" />
-    <div class="card">
-      <v-card elevation="5" class="mx-auto" max-width="600" tile>
-        <v-list dense>
-          <v-subheader>MI CUENTA</v-subheader>
-          <v-list-item-group v-model="selectedItem" color="primary">
-            <v-list-item v-for="(item, i) in items" :key="i">
-              <v-list-item-icon>
-                <v-icon v-text="item.icon"></v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <router-link class="link" :to="item.link">
-                  <v-list-item-title v-text="item.text"></v-list-item-title>
-                </router-link>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-      </v-card>
-    </div>
-
     <div>
       <div>
         <img :src="$auth.user.picture" />
@@ -29,7 +9,7 @@
       </div>
 
       <div>
-        <pre>{{ JSON.stringify(userInfo, null, 2) }}</pre>
+        <pre>{{ JSON.stringify(products, null, 2) }}</pre>
       </div>
     </div>
 
@@ -50,7 +30,7 @@ export default {
   },
   data: () => ({
     selectedItem: 1,
-    userInfo: "",
+    products: "",
     items: [
       {
         text: "Mis productos",
@@ -67,11 +47,6 @@ export default {
         icon: "mdi-flag",
         link: "/user/agregar-producto",
       },
-      {
-        text: "Mis compras",
-        icon: "mdi-clock",
-        link: "/cuenta/mis-compras",
-      },
     ],
   }),
   async mounted() {
@@ -79,7 +54,7 @@ export default {
 
     // Use Axios to make a call to the API
     const { data } = await axios.get(
-      `http://localhost:3001/users/getMyInfo/${this.$auth.user.email}`,
+      `http://localhost:3001/users/getMyProducts/${this.$auth.user.email}`,
       {
         headers: {
           Authorization: `Bearer ${token}`, // send the access token through the 'Authorization' header
@@ -87,7 +62,7 @@ export default {
       }
     );
 
-    this.userInfo = data;
+    this.products = data;
   },
   computed: {
     is_searchBar_open: function() {

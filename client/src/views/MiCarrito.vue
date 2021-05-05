@@ -3,6 +3,7 @@
     <Header />
     <SearchBar v-if="is_searchBar_open" />
     <MiCarrito class="width" :products="products" />
+    <pre>{{ JSON.stringify(cart, null, 2) }}</pre>
     <Footer />
   </v-main>
 </template>
@@ -12,7 +13,7 @@ import Header from "../components/general/Header.vue";
 import Footer from "../components/general/Footer";
 import SearchBar from "@/components/general/SearchBar";
 import MiCarrito from "@/components/miCarrito/MiCarrito";
-
+import axios from "axios";
 export default {
   components: {
     Header,
@@ -22,6 +23,7 @@ export default {
   },
   data() {
     return {
+      cart: "",
       products: [
         {
           _id: "60653dd3cee1f513b44da5db",
@@ -79,6 +81,22 @@ export default {
         },
       ],
     };
+  },
+  async mounted() {
+    const token = await this.$auth.getTokenSilently();
+
+    // Use Axios to make a call to the API
+    const { data } = await axios.get(
+      `http://localhost:3001/users/getMyCart/${this.$auth.user.email}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // send the access token through the 'Authorization' header
+        },
+      }
+    );
+
+    this.cart = data;
+    console.log(this.cart);
   },
   computed: {
     is_searchBar_open: function() {
