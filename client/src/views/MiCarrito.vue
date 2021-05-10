@@ -87,7 +87,7 @@ export default {
 
     // Use Axios to make a call to the API
     const { data } = await axios.get(
-      `http://localhost:3001/users/getMyCart/${this.$auth.user.email}`,
+      `https://n4mbc432.herokuapp.com/users/getMyCart/${this.$auth.user.email}`,
       {
         headers: {
           Authorization: `Bearer ${token}`, // send the access token through the 'Authorization' header
