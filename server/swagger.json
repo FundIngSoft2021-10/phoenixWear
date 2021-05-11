@@ -1,0 +1,132 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Phoenix API",
+        "description": "This is the documentation of the phoenix web page backend",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "https://n4mbc432.herokuapp.com",
+    "basePath": "/api-docs",
+    "tags": [{
+            "name": "Users",
+            "description": "API for users in the system"
+        }
+
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "in": "headers",
+            "name": "authorization"
+        }
+    },
+    "paths": {
+        "/users": {
+            "get": {
+                "summary": "getUsers",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Gets every user data",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Users not found"
+                    },
+                    "500": {
+                        "description": "User get failed!!"
+                    }
+                }
+            }
+        }
+    },
+
+    "definitions": {
+        "user": {
+            "properties": {
+                "personal_information": {
+                    "type": "InfoUser.schema",
+                    "required": "true"
+                },
+                "phoenix_credits": {
+                    "type": "Number",
+                    "default": "0"
+                },
+                "score": {
+                    "type": "Number",
+                    "required": "false",
+                    "min": "0",
+                    "max": "5",
+                    "default": "5"
+                },
+                "favorites": {
+                    "type": "Schema.Types.ObjectId",
+                    "ref": "'Product'",
+                    "required": "false"
+                },
+                "own_products": {
+                    "type": "Schema.Types.ObjectId",
+                    "ref": "'Product'",
+                    "required": "false"
+                },
+                "purchased_products": {
+                    "type": "Schema.Types.ObjectId",
+                    "ref": "'Product'",
+                    "required": "false"
+                },
+                "cart": {
+                    "type": "Cart.schema",
+                    "ref": "'Cart'",
+                    "required": "false"
+                }
+            }
+        },
+        "products": {
+            "properties": {
+                "information": {
+                    "type": "InfoProduct.schema",
+                    "required": "true"
+                },
+                "tags": {
+                    "type": "String",
+                    "required": "true"
+                },
+                "garment": {
+                    "type": "Garment.schema",
+                    "required": "true"
+                },
+                "ID_seller": {
+                    "type": "Schema.Types.ObjectId",
+                    "required": "true",
+                    "ref": "'User'"
+                },
+                "ID_buyer": {
+                    "type": "Schema.Types.ObjectId",
+                    "required": "false",
+                    "ref": "'User'"
+                }
+            }
+        }
+
+
+    }
+}
