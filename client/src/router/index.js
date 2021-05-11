@@ -16,6 +16,9 @@ import Status from "../views/OrderDetails";
 import Confirmation from "../views/PurchaseConfirmation";
 import Products from "../views/Products";
 import MyAccount from "../views/MyAccount";
+import { authGuard } from "../auth/authGuard";
+import MyProducts from "../views/MyProducts";
+import MyPurchases from "../views/MyPurchases";
 
 Vue.use(VueRouter);
 
@@ -58,11 +61,25 @@ const routes = [{
         path: "/carrito",
         name: "MiCarrito",
         component: MiCarrito,
+        beforeEnter: authGuard,
     },
     {
         path: "/cuenta",
         name: "MiCuenta",
         component: MyAccount,
+        beforeEnter: authGuard,
+    },
+    {
+        path: "/cuenta/mis-productos",
+        name: "MisProductos",
+        component: MyProducts,
+        beforeEnter: authGuard,
+    },
+    {
+        path: "/cuenta/mis-compras",
+        name: "MisProductos",
+        component: MyPurchases,
+        beforeEnter: authGuard,
     },
     {
         path: "/user/agregar-producto",
