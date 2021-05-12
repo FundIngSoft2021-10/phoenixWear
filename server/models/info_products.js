@@ -37,7 +37,7 @@ const info_ProductSchema = new Schema({
         default: false,
     },
     photo: [{
-        type: String,
+        type: Buffer,
         required: true,
     }, ],
 });

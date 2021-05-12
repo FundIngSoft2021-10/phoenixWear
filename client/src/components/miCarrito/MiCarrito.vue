@@ -142,7 +142,6 @@ export default {
     },
     addFav(index) {
       this.fav_active[index] = !this.fav_active[index];
-      console.log(index);
     },
   },
   computed: {
@@ -166,7 +165,6 @@ export default {
       return prev + cur.information.price;
     }, 0);
     this.fav_active = new Array(this.products.length).fill(false);
-    console.log(this.fav_active);
   },
 };
 </script>
