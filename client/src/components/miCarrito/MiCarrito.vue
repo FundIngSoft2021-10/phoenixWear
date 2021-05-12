@@ -39,24 +39,55 @@
             <img :src="item.img" height="100" width="100" />
             <div class="prendaInfo">
               <router-link :to="`producto/${item._id}`" class="link">
-                <p>{{ item.name }}</p>
+              <v-tooltip top>
+                <template v-slot:activator="{ on, attrs }">
+                  <p v-bind="attrs" v-on="on">{{ item.name }}</p>
+                </template>
+              <span>Dirígite a este artículo</span>
+              </v-tooltip>
               </router-link>
               <p>{{ formatPrice(item.price) }} IVA incluido</p>
             </div>
             <div class="icons">
-              <i
-                v-if="fav_active[item.index]"
+              
+              <v-tooltip bottom v-if="fav_active[item.index]">
+              <template v-slot:activator="{ on, attrs }">
+                <i
                 @click="addFav(item.index)"
                 @click.stop="dialog = true"
                 class="fas fa-heart ico"
-              ></i>
-              <i
-                v-else
+                v-bind="attrs"
+                v-on="on"
+                ></i>
+                 </template>
+              <span>Elimina de favoritos</span>
+              </v-tooltip>
+
+              <v-tooltip bottom v-else>
+                <template v-slot:activator="{ on, attrs }">
+                <i
                 @click="addFav(item.index)"
                 @click.stop="dialog = true"
                 class="far fa-heart ico"
-              ></i>
-              <i @click="deleteProduct(item)" class="fas fa-trash ico"></i>
+                v-bind="attrs"
+                v-on="on"
+                ></i>
+                </template>
+              <span>Agrega a favoritos</span>
+              </v-tooltip>
+
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                <i @click="deleteProduct(item)" class="fas fa-trash ico"
+                  v-bind="attrs"
+                  v-on="on"
+                ></i>
+                </template>
+              <span>Elimina de MiCarrito</span>
+              </v-tooltip>
+              
+
+
               <v-dialog v-model="dialog" max-width="290">
                 <v-card>
                   <v-card-title class="headline">
