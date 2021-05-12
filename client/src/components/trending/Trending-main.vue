@@ -76,7 +76,7 @@ export default {
   position: relative;
 }
 .badge {
-  z-index: 20;
+  z-index: 1;
   position: absolute;
   left: 0;
   top: 20px;
