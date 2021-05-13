@@ -5,21 +5,25 @@
         cols="3"
         v-for="(product, index) in products"
         :key="(product, index)"
-        ><router-link class="link" :to="`../producto/${product._id}`">
+        >
+        <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+        <router-link class="link" :to="`../producto/${product._id}`">
           <v-card class="mx-auto" max-width="350">
             <v-img
+               v-bind="attrs" v-on="on"
               :src="product.information.photo[0]"
               :lazy-src="product.information.photo[0]"
               height="400px"
               width="750px"
             ></v-img>
-            <v-card-title class="nombre">
+            <v-card-title v-bind="attrs" v-on="on" class="nombre">
               {{ product.information.name }}
             </v-card-title>
-            <v-card-subtitle class="sub">
+            <v-card-subtitle v-bind="attrs" v-on="on" class="sub">
               {{ `Precio: ${formatPrice(product.information.price)}` }}
             </v-card-subtitle>
-            <v-card-text class="texto">
+            <v-card-text v-bind="attrs" v-on="on" class="texto">
               {{ `Talla: ${product.garment.size}` }}<br />
               {{ `Descripcion: ${product.information.short_description}`
               }}<br />
@@ -41,6 +45,9 @@
             </v-expand-transition>
           </v-card>
         </router-link>
+        </template>
+        <span>Dirígete a este artículo</span>
+        </v-tooltip>
       </v-col>
     </v-row>
   </v-main>
