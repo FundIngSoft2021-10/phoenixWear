@@ -49,12 +49,12 @@ export default {
     };
   },
   mounted() {
-    if (this.product.status == "Disponible" && this.isBuyer) {
+    if (this.product.status == "Disponible" && !this.isBuyer) {
       this.show = true;
     } else if (
       (this.product.status == "Enviado" ||
         this.product.status == "Entregado") &&
-      !this.isBuyer
+      this.isBuyer
     ) {
       this.show = true;
     }
