@@ -29,7 +29,7 @@
                   v-on="on"
                 ></i>
                 </template>
-              <span>Elimina de MiCarrito</span>
+              <span>Elimina de Favoritos</span>
               </v-tooltip>
 
             
