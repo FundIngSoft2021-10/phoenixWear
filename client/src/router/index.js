@@ -97,9 +97,10 @@ const routes = [{
         component: CreateUser,
     },
     {
-        path: "/producto/estado",
+        path: "/cuenta/mis-productos/estado/:id",
         name: "estado de orden",
         component: Status,
+        beforeEnter: authGuard,
     },
     {
         path: "/user/actualizar-usuario",

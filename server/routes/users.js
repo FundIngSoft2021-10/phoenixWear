@@ -11,6 +11,7 @@ router.get("/getMyInfo/:email", checkJwt, getController.getMyInfo);
 router.get("/getMyProducts/:email", checkJwt, getController.getMyProducts);
 router.get("/getMyPurchase/:email", checkJwt, getController.getMyPurchases);
 router.get("/getMyCart/:email", checkJwt, getController.getMyCart);
+router.get("/getMyId/:email", checkJwt, getController.getMyId);
 router.post("/", postController.postUser);
 
 module.exports = router;
