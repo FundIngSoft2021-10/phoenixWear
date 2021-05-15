@@ -68,7 +68,7 @@ export default {
     },
     async updateStatus() {
       await axios.put(
-        `http://localhost:3001/products/updateStatus/${this.$route.params.id}`
+        `https://n4mbc432.herokuapp.com/products/updateStatus/${this.$route.params.id}`
       );
       window.location.reload();
     },

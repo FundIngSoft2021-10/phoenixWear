@@ -58,7 +58,7 @@ export default {
     //const url2 = `http://localhost:3001/users/getMyInfo/${this.$auth.user.email}`;
     const token = await this.$auth.getTokenSilently();
     const { data } = await axios.get(
-      `http://localhost:3001/users/getMyId/${this.$auth.user.email}`,
+      `https://n4mbc432.herokuapp.com/users/getMyId/${this.$auth.user.email}`,
       {
         headers: {
           Authorization: `Bearer ${token}`, // send the access token through the 'Authorization' header
