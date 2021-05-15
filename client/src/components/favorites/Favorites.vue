@@ -93,6 +93,7 @@
   display: flex;
   justify-content: space-around;
   text-transform: uppercase;
+  color: #ff8585;
 }
 
 .productos {
