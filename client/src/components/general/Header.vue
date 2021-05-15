@@ -20,6 +20,16 @@
       <div class="Carrito">
         <router-link class="Carrito" to="/carrito">Mi carrito </router-link
         ><i class="fas fa-shopping-cart"></i>
+         
+        <router-link to="/favorites">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <i v-bind="attrs" v-on="on" class="fas fa-heart ico"></i>
+          </template>
+        <span>Favoritos</span>
+        </v-tooltip>
+        </router-link>
+        
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
         <i v-bind="attrs" v-on="on" @click="changeMode()" class="fas fa-search"></i>
@@ -193,7 +203,7 @@ header {
 
 .Carrito {
   margin-right: 3%;
-  width: 10%;
+  width: 12%;
   text-transform: uppercase;
   font-size: 12px;
   margin-top: 30px;
@@ -218,5 +228,13 @@ i {
   padding: 6px;
   border-left: 1px solid #2c363f;
   color: #2c363f;
+}
+
+.fa-heart{
+  margin-right: 2px;
+}
+
+.fa-heart:hover{
+   color: #ffafaf;
 }
 </style>

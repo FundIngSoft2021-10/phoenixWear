@@ -19,6 +19,7 @@ import MyAccount from "../views/MyAccount";
 import { authGuard } from "../auth/authGuard";
 import MyProducts from "../views/MyProducts";
 import MyPurchases from "../views/MyPurchases";
+import Favorites from "../views/Favorites";
 
 Vue.use(VueRouter);
 
@@ -110,6 +111,11 @@ const routes = [{
         path: "/confirmacion",
         name: "confirmation",
         component: Confirmation,
+    },
+    {
+        path: "/favorites",
+        name: "favorites",
+        component: Favorites,
     },
     {
         path: "/*",
