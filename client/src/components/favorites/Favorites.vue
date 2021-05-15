@@ -1,6 +1,7 @@
 <template>
-  <v-main class="main">
-    <v-card max-width="700" class="productos">
+  <v-main>
+    <p class="p">tus favoritos</p>
+    <v-card max-width="800" class="productos">
       <v-virtual-scroll :items="items" height="470" item-height="200">
 
         <template v-slot:default="{ item }">
@@ -24,15 +25,13 @@
               
                 <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
-                <i @click="deleteProduct(item)" class="fas fa-trash ico"
+                <i @click="deleteProduct(item)" class="fas fa-heart ico"
                   v-bind="attrs"
                   v-on="on"
                 ></i>
                 </template>
               <span>Elimina de Favoritos</span>
               </v-tooltip>
-
-            
             </div>
             
           </v-list-item>
@@ -87,14 +86,23 @@
 
 <style scoped lang="scss">
 
+.p{
+  margin-top: 40px;
+  font-size: 20px;
+  font-family: $montserratSemiBold-font;
+  display: flex;
+  justify-content: space-around;
+  text-transform: uppercase;
+}
 
 .productos {
   font-family: $montserratSemiBold-font;
   margin: auto;
+  
    
   img{
     padding-bottom: 10px;
-    margin-top:0px;
+    margin-top:30px;
   }
 
   .icons {

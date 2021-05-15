@@ -95,8 +95,7 @@
                   </v-card-title>
 
                   <v-card-text>
-                    Si desea ver la lista de favoritos, vaya a mi cuenta> lista
-                    de favoritos
+                    La lista de favoritos se encuentra en el <i class="fas fa-heart ico"></i> del header.
                   </v-card-text>
 
                   <v-card-actions>
