@@ -3,6 +3,7 @@ const router = new express.Router();
 
 const getController = require("../controllers/get_products");
 const postController = require("../controllers/post_products");
+const putController = require("../controllers/put_products");
 
 router.get("/", getController.getProducts);
 router.get("/findById/:id", getController.findById);
@@ -11,6 +12,7 @@ router.get("/findBySize/:size", getController.findBySize);
 router.get("/findByTags/:tag", getController.findByTags);
 router.get("/findByIDSeller/:id", getController.findByIDSeller);
 router.get("/findByIDBuyer/:id", getController.findByIDBuyer);
+router.put("/updateStatus/:id", putController.updateState);
 
 router.post("/", postController.postProduct);
 
