@@ -65,7 +65,7 @@ export default {
       {
         text: "Agregar producto",
         icon: "mdi-flag",
-        link: "/user/agregar-producto",
+        link: "/cuenta/agregar-producto",
       },
       {
         text: "Mis compras",
