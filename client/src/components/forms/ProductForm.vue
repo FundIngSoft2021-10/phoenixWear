@@ -42,7 +42,7 @@
           <v-file-input
             v-for="n in 4"
             :key="n"
-            v-model="product_info.img[n]"
+            v-model="product_info.img[n - 1]"
             accept="image/png"
             prepend-icon="mdi-camera"
             :label="`Subir foto ${n} .png`"
@@ -64,7 +64,7 @@
           <v-select
             :items="items_garment"
             v-if="selectedItem == 'Ropa'"
-            v-model="product_info.garment"
+            v-model="garment"
             label="Prenda"
             required
           />
@@ -105,6 +105,7 @@ export default {
     return {
       valid: true,
       isClose: false,
+      garment: "Accesorios",
       items_garment: [
         "Vestidos",
         "Pantalones",
@@ -115,6 +116,7 @@ export default {
         "Accesorios",
         "Sacos",
       ],
+      id: null,
       items_size: ["XS", "S", "M", "L", "XL"],
       items: ["Ropa", "Accesorio"],
       selectedItem: "Accesorio",
@@ -153,6 +155,10 @@ export default {
       }
     },
     async postMethod() {
+      let res = this.product_info.img.map(
+        (a) => `https://bit.ly/${a.name.slice(0, -4)}`
+      );
+      const token = await this.$auth.getTokenSilently();
       const { data } = await axios.get(
         `http://localhost:3001/users/getMyId/${this.$auth.user.email}`,
         {
@@ -161,6 +167,7 @@ export default {
           },
         }
       );
+      this.id = data;
       axios
         .post("http://localhost:3001/products", {
           information: {
@@ -170,19 +177,18 @@ export default {
             description: this.product_info.description,
             short_description: "Lorem ipsum blah blah",
             premium: this.product_info.premium,
-            photo: "https://avatars.githubusercontent.com/u/50469166?v=4",
+            photo: res,
           },
           tags: this.product_info.tags,
           garment: {
-            type_garment: "Vestidos",
+            type_garment: this.garment,
             size: this.product_info.talla,
           },
-          ID_seller: "609282a7ac7f5700120125a5",
+          ID_seller: this.id,
         })
         .then((res) => {
           console.log(res);
         });
-      console.log(this.product_info.color);
     },
     updateMethod() {
       console.log("Update");
