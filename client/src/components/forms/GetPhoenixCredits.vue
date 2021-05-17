@@ -3,13 +3,6 @@
         <v-container class="credits">
             <form method="POST" action="https://formspree.io/f/mbjqjand">
                     <v-text-field
-                        name="Username"
-                        :counter="20"
-                        label="Username"
-                        required
-                        :rules="text_rule"
-                    />
-                    <v-text-field
                         name="Cantidad"
                         label="Cantidad"
                         required
