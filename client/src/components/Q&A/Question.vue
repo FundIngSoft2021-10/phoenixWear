@@ -5,10 +5,21 @@
         <div class="card">
           <div class="question">
             <h3>{{ title }}</h3>
-            <v-btn icon @click="show = !show">
+            <v-tooltip right v-if = !show>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn v-bind="attrs" v-on="on" icon @click="show = !show">
+                  <v-icon>{{
+                    show ? "mdi-chevron-up" : "mdi-chevron-down"
+                  }}</v-icon>
+                </v-btn>
+              </template>
+              <span>Mira la respuesta</span>
+            </v-tooltip>
+
+            <v-btn v-else v-bind="attrs" v-on="on" icon @click="show = !show">
               <v-icon>{{
                 show ? "mdi-chevron-up" : "mdi-chevron-down"
-              }}</v-icon>
+                }}</v-icon>
             </v-btn>
           </div>
           <v-expand-transition>
