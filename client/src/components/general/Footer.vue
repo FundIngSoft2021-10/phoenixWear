@@ -40,14 +40,31 @@
       <div class="footer-rightSection">
         <p class="footer-title">SIGUENOS</p>
         <div class="footer-icons">
-          <a href="https://www.facebook.com/phoenix.wear.7/"
-            ><i class="fab fa-facebook fa-lg"></i
-          ></a>
-          <a href="https://www.instagram.com/phoenix_wear_co/">
-            <i class="fab fa-instagram fa-lg"></i>
+          <a href="https://www.facebook.com/phoenix.wear.7/">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <i v-bind="attrs" v-on="on" class="fab fa-facebook fa-lg"></i>
+            </template>
+            <span>Facebook</span>
+          </v-tooltip>
           </a>
+
+          <a href="https://www.instagram.com/phoenix_wear_co/">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <i v-bind="attrs" v-on="on" class="fab fa-instagram fa-lg"></i>
+            </template>
+            <span>Instagram</span>
+          </v-tooltip>
+          </a>
+
           <a href="https://github.com/FundIngSoft2021-10/phoenixWear">
-            <i class="fab fa-github fa-lg"></i>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+            <i v-bind="attrs" v-on="on" class="fab fa-github fa-lg"></i>
+            </template>
+            <span>GitHub</span>
+          </v-tooltip>
           </a>
         </div>
       </div>

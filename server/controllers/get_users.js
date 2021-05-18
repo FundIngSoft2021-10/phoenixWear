@@ -35,6 +35,7 @@ exports.getMyInfo = async(req, res) => {
             return res.status(400).send();
         }
         const info = {
+            _id: userByEmail[0]._id,
             score: userByEmail[0].score,
             numProducts: userByEmail[0].own_products.length,
             numProductsPur: userByEmail[0].purchased_products.length,
@@ -86,4 +87,17 @@ exports.getMyCart = async(req, res) => {
         res.status(500).send();
     }
 };
-
+exports.getMyId = async(req, res) => {
+    try {
+        const userByEmail = await User.find({
+            email: req.params.email,
+        });
+        if (!userByEmail) {
+            return res.status(400).send();
+        }
+        const id = userByEmail[0]._id;
+        res.send(id);
+    } catch (error) {
+        res.status(500).send();
+    }
+};
