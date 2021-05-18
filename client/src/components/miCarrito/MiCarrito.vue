@@ -118,11 +118,12 @@
 export default {
   props: {
     products: Array,
+    fav_active: [],
   },
   data() {
     return {
       total: 0,
-      fav_active: [],
+
       dialog: false,
     };
   },
@@ -142,7 +143,7 @@ export default {
     addFav(index) {
       this.fav_active[index] = !this.fav_active[index];
     },
-  },
+  },  
   computed: {
     items() {
       const proLength = this.products.length;

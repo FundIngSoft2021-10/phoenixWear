@@ -22,7 +22,6 @@ export default {
   },
   data() {
     return {
-      cart: "",
       products: [
         {
           _id: "60653dd3cee1f513b44da5db",
