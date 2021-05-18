@@ -83,9 +83,10 @@ const routes = [{
         beforeEnter: authGuard,
     },
     {
-        path: "/user/agregar-producto",
+        path: "/cuenta/agregar-producto",
         name: "Agregar-productos",
         component: AddProduct,
+        beforeEnter: authGuard,
     },
     {
         path: "/user/actualizar-producto",
