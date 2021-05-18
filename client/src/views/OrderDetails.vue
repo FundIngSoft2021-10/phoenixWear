@@ -2,13 +2,25 @@
   <v-main>
     <Header />
     <SearchBar v-if="is_searchBar_open" />
-    <section>
-      <Breadcrumb :productName="product.name" />
+    <div v-if="!isLoaded" class="loader">
+      <v-progress-circular
+        :size="100"
+        :width="7"
+        color="phoenix"
+        indeterminate
+      ></v-progress-circular>
+    </div>
+    <section v-else>
+      <Breadcrumb :productName="product.information.name" />
       <div class="detail-section">
         <div class="right-section">
-          <Carousel :starting-image="0" :images="images" />
+          <Carousel :starting-image="0" :images="product.information.photo" />
         </div>
-        <ProductInfo class="right-section" :product="product" />
+        <ProductInfo
+          class="right-section"
+          :product="product.information"
+          :isBuyer="isBuyer"
+        />
       </div>
     </section>
     <Footer />
@@ -22,6 +34,7 @@ import ProductInfo from "../components/details/OrderInfo.vue";
 import Footer from "../components/general/Footer";
 import SearchBar from "@/components/general/SearchBar";
 import Carousel from "../components/details/Carousel";
+import axios from "axios";
 export default {
   components: {
     Breadcrumb,
@@ -33,45 +46,33 @@ export default {
   },
   data() {
     return {
-      product: {
-        name: "CAMISA AZUL",
-        price: 50000,
-        size: "M",
-        color: "Azul",
-        description:
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32. ",
-      },
-      images: [
-        {
-          id: "1",
-          big:
-            "https://www.all4o.com/image/cache/data/brand/TrueStory/TRUE-STORY-Elite-orienteering-shirt-Men-Deep-BLUE-800x800.jpg",
-          thumb:
-            "https://www.all4o.com/image/cache/data/brand/TrueStory/TRUE-STORY-Elite-orienteering-shirt-Men-Deep-BLUE-150x150.jpg",
-        },
-        {
-          id: "2",
-          big:
-            "https://www.all4o.com/image/cache/data/brand/TrueStory/TRUE-STORY-Classic-o-shirt-MEN-BLACK-STERLING-back-800x800.jpg",
-          thumb:
-            "https://www.all4o.com/image/cache/data/brand/TrueStory/TRUE-STORY-Classic-o-shirt-MEN-BLACK-STERLING-back-150x150.jpg",
-        },
-        {
-          id: "3",
-          big:
-            "https://www.all4o.com/image/cache/data/brand/TrueStory/TRUE%20STORY-Classic-o-shirt-WOMEN-LAVENDER-PIE-800x800.jpg",
-          thumb:
-            "https://www.all4o.com/image/cache/data/brand/TrueStory/TRUE%20STORY-Classic-o-shirt-WOMEN-LAVENDER-PIE-back-150x150.jpg",
-        },
-        {
-          id: "4",
-          big:
-            "https://www.all4o.com/image/cache/data/brand/FRENSON/Shirts/frenson-o-division-orienteering-mesh-shirt-white-front-800x800.jpg",
-          thumb:
-            "https://www.all4o.com/image/cache/data/brand/FRENSON/Shirts/frenson-o-division-orienteering-mesh-shirt-white-front-150x150.jpg",
-        },
-      ],
+      product: null,
+      isLoaded: false,
+      id: "",
+      state: "",
+      isBuyer: "",
     };
+  },
+  async mounted() {
+    const url1 = `https://n4mbc432.herokuapp.com/products/findById/${this.$route.params.id}`;
+    //const url2 = `http://localhost:3001/users/getMyInfo/${this.$auth.user.email}`;
+    const token = await this.$auth.getTokenSilently();
+    const { data } = await axios.get(
+      `https://n4mbc432.herokuapp.com/users/getMyId/${this.$auth.user.email}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // send the access token through the 'Authorization' header
+        },
+      }
+    );
+    this.id = data;
+
+    axios.get(url1).then((response) => {
+      this.product = response.data;
+      this.state = this.product.information.status;
+      this.isBuyer = this.product.ID_buyer == this.id ? true : false;
+      this.isLoaded = true;
+    });
   },
   computed: {
     is_searchBar_open: function() {
@@ -98,5 +99,11 @@ section {
   width: 60%;
   align-self: center;
   margin-top: 1rem;
+}
+.loader {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

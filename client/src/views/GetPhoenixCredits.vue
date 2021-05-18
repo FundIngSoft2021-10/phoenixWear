@@ -1,24 +1,19 @@
 <template>
-  <v-main>
-    <Header />
-    <SearchBar v-if="is_searchBar_open" />
-    <MiCuenta />
-    <Footer />
-  </v-main>
+    <v-main>
+        <Header/>
+        <Credits class="width"/>
+        <Footer/>        
+    </v-main>
 </template>
-
 <script>
 import Header from "../components/general/Header.vue";
 import Footer from "../components/general/Footer";
-import SearchBar from "@/components/general/SearchBar";
-import MiCuenta from "../components/miCuenta/MiCuenta";
-
+import Credits from "../components/forms/GetPhoenixCredits"
 export default {
   components: {
     Header,
-    MiCuenta,
     Footer,
-    SearchBar,
+    Credits,
   },
   computed: {
     is_searchBar_open: function() {
@@ -27,5 +22,4 @@ export default {
   },
 };
 </script>
-
-<style></style>
+<style lang="stylus" scoped></style>

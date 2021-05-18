@@ -34,13 +34,15 @@
               v-show="isClose"
               v-model="product_info.color"
               label="Color"
+              class="color-picker"
+              show-swatches
               required
             />
           </v-expand-transition>
           <v-file-input
             v-for="n in 4"
             :key="n"
-            v-model="product_info.img[n]"
+            v-model="product_info.img[n - 1]"
             accept="image/png"
             prepend-icon="mdi-camera"
             :label="`Subir foto ${n} .png`"
@@ -59,6 +61,13 @@
             label="Talla"
             required
           />
+          <v-select
+            :items="items_garment"
+            v-if="selectedItem == 'Ropa'"
+            v-model="garment"
+            label="Prenda"
+            required
+          />
           <v-text-field
             v-model="product_info.tags"
             label="Tags (Dividirlo por comas)"
@@ -72,7 +81,6 @@
           />
           <v-btn
             :disabled="!valid"
-            method="POST"
             @click="submit"
             large
             rounded
@@ -87,6 +95,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   props: {
     product_info: Object,
@@ -96,6 +105,18 @@ export default {
     return {
       valid: true,
       isClose: false,
+      garment: "Accesorios",
+      items_garment: [
+        "Vestidos",
+        "Pantalones",
+        "Chaquetas",
+        "Zapatos",
+        "Blusas",
+        "Camisas",
+        "Accesorios",
+        "Sacos",
+      ],
+      id: null,
       items_size: ["XS", "S", "M", "L", "XL"],
       items: ["Ropa", "Accesorio"],
       selectedItem: "Accesorio",
@@ -133,8 +154,51 @@ export default {
         }
       }
     },
-    postMethod() {
-      console.log("Post");
+    async postMethod() {
+      let res = this.product_info.img.map(
+        (a) => `https://bit.ly/${a.name.slice(0, -4)}`
+      );
+      const token = await this.$auth.getTokenSilently();
+      const { data } = await axios.get(
+        `https://n4mbc432.herokuapp.com/users/getMyId/${this.$auth.user.email}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // send the access token through the 'Authorization' header
+          },
+        }
+      );
+      this.id = data;
+      let idProduct = "";
+      console.log(this.id);
+      await axios
+        .post("https://n4mbc432.herokuapp.com/products", {
+          information: {
+            name: this.product_info.productName,
+            price: this.product_info.price,
+            color: this.product_info.color,
+            description: this.product_info.description,
+            short_description: "Lorem ipsum blah blah",
+            premium: this.product_info.premium,
+            photo: res,
+          },
+          tags: this.product_info.tags,
+          garment: {
+            type_garment: this.garment,
+            size: this.product_info.talla,
+          },
+          ID_seller: this.id,
+        })
+        .then((res) => {
+          alert(res.data.message);
+          idProduct = res.data.id;
+        });
+      await axios
+        .put(`https://n4mbc432.herokuapp.com/users/addProduct/${this.id}`, {
+          id: idProduct,
+        })
+        .then(() => {
+          this.$router.push({ name: "MiCuenta" });
+        });
     },
     updateMethod() {
       console.log("Update");
@@ -143,4 +207,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.v-color-picker {
+  margin: 1rem 0;
+}
+</style>

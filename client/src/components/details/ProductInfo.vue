@@ -12,7 +12,13 @@
       </tr>
       <tr>
         <td class="TablaInfo">COLOR :</td>
-        <td>{{ product.information.color }}</td>
+        <td>
+          {{ product.information.color }}
+          <i
+            :style="`color : ${product.information.color}`"
+            class="fas fa-circle"
+          ></i>
+        </td>
       </tr>
       <tr>
         <td class="TablaInfo">CANTIDAD :</td>
@@ -91,5 +97,8 @@ table {
 
 td {
   text-align: center;
+}
+.circle {
+  border-radius: 10px;
 }
 </style>

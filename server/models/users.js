@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const InfoUser = require("./info_users");
 const Cart = require("./cart_user");
 
+
 const userSchema = new Schema({
     personal_information: {
         type: InfoUser.schema,
@@ -18,26 +19,26 @@ const userSchema = new Schema({
         required: false,
         min: 0,
         max: 5,
-        default: 5
+        default: 5,
     },
     favorites: [{
         type: Schema.Types.ObjectId,
-        ref: 'Product',
+        ref: "Product",
         required: false,
-    }],
+    }, ],
     own_products: [{
         type: Schema.Types.ObjectId,
-        ref: 'Product',
+        ref: "Product",
         required: false,
-    }],
+    }, ],
     purchased_products: [{
         type: Schema.Types.ObjectId,
-        ref: 'Product',
+        ref: "Product",
         required: false,
-    }],
+    }, ],
     cart: {
-        type: Cart.schema,
-        ref: 'Cart',
+        type: Schema.Types.ObjectId,
+        ref: "Cart",
         required: false,
     },
     // tokens: [{

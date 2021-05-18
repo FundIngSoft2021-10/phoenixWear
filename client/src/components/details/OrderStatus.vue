@@ -1,16 +1,28 @@
 <template>
   <section>
     <ul class="list">
-      <li class="list_item">COMPRADO</li>
-      <li class="list_item">ENVIADO</li>
-      <li class="list_item">EN CAMINO</li>
-      <li class="list_item active">ENTREGADO</li>
+      <li :class="status == 'Disponible' ? 'active' : ''" class="list_item">
+        DISPONIBLE
+      </li>
+      <li :class="status == 'Enviado' ? 'active' : ''" class="list_item">
+        ENVIADO
+      </li>
+      <li :class="status == 'Entregado' ? 'active' : ''" class="list_item">
+        ENTREGADO
+      </li>
+      <li :class="status == 'Finalizado' ? 'active' : ''" class="list_item">
+        FINALIZADO
+      </li>
     </ul>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    status: String,
+  },
+};
 </script>
 
 <style scoped lang="scss">
