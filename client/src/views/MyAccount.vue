@@ -72,6 +72,11 @@ export default {
         icon: "mdi-clock",
         link: "/cuenta/mis-compras",
       },
+      {
+        text: "Agregar Phoenix Credits",
+        icon: "mdi-account",
+        link: "/credits",
+      },
     ],
   }),
   async mounted() {
