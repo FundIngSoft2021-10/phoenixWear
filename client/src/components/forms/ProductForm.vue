@@ -160,7 +160,7 @@ export default {
       );
       const token = await this.$auth.getTokenSilently();
       const { data } = await axios.get(
-        `http://localhost:3001/users/getMyId/${this.$auth.user.email}`,
+        `https://n4mbc432.herokuapp.com/users/getMyId/${this.$auth.user.email}`,
         {
           headers: {
             Authorization: `Bearer ${token}`, // send the access token through the 'Authorization' header
@@ -169,7 +169,7 @@ export default {
       );
       this.id = data;
       axios
-        .post("http://localhost:3001/products", {
+        .post("https://n4mbc432.herokuapp.com/products", {
           information: {
             name: this.product_info.productName,
             price: this.product_info.price,
@@ -188,6 +188,8 @@ export default {
         })
         .then((res) => {
           console.log(res);
+          alert(res);
+          this.$router.push({ name: "MiCuenta" });
         });
     },
     updateMethod() {

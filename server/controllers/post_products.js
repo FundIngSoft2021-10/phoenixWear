@@ -10,7 +10,7 @@ exports.postProduct = async(req, res) => {
                 "\nDe ID: " +
                 product.id,
         }).save();
-        res.status(201).send([product, record]);
+        res.status(201).send("Producto creado!");
     } catch (error) {
         res.status(500).send(error);
     }
