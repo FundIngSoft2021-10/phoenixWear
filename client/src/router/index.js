@@ -20,6 +20,7 @@ import { authGuard } from "../auth/authGuard";
 import MyProducts from "../views/MyProducts";
 import MyPurchases from "../views/MyPurchases";
 import Favorites from "../views/Favorites";
+import GetPhoenixCredits from "../views/GetPhoenixCredits"
 
 Vue.use(VueRouter);
 
@@ -98,9 +99,10 @@ const routes = [{
         component: CreateUser,
     },
     {
-        path: "/producto/estado",
+        path: "/cuenta/mis-productos/estado/:id",
         name: "estado de orden",
         component: Status,
+        beforeEnter: authGuard,
     },
     {
         path: "/user/actualizar-usuario",
@@ -116,6 +118,11 @@ const routes = [{
         path: "/favorites",
         name: "favorites",
         component: Favorites,
+    },
+    {
+        path: "/credits",
+        name: "credits",
+        component: GetPhoenixCredits
     },
     {
         path: "/*",
