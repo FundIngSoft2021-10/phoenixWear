@@ -20,16 +20,7 @@
       <div class="Carrito">
         <router-link class="Carrito" to="/carrito">Mi carrito </router-link
         ><i class="fas fa-shopping-cart"></i>
-         
-        <router-link to="/favorites">
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on, attrs }">
-            <i v-bind="attrs" v-on="on" class="fas fa-heart ico"></i>
-          </template>
-        <span>Favoritos</span>
-        </v-tooltip>
-        </router-link>
-        
+                
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
         <i v-bind="attrs" v-on="on" @click="changeMode()" class="fas fa-search"></i>
