@@ -77,6 +77,11 @@ export default {
         icon: "mdi-account",
         link: "/credits",
       },
+      {
+        text: "Mis favoritos",
+        icon: "mdi-heart",
+        link: "/favorites",
+      },
     ],
   }),
   async mounted() {

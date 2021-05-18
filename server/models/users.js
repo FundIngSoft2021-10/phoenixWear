@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const InfoUser = require("./info_users");
 const Cart = require("./cart_user");
 
+
 const userSchema = new Schema({
     personal_information: {
         type: InfoUser.schema,

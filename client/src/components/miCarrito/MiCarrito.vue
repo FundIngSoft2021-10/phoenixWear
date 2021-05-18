@@ -95,8 +95,7 @@
                   </v-card-title>
 
                   <v-card-text>
-                    Si desea ver la lista de favoritos, vaya a mi cuenta> lista
-                    de favoritos
+                    La lista de favoritos se encuentra en el <i class="fas fa-heart ico"></i> del header.
                   </v-card-text>
 
                   <v-card-actions>
@@ -119,11 +118,12 @@
 export default {
   props: {
     products: Array,
+    fav_active: [],
   },
   data() {
     return {
       total: 0,
-      fav_active: [],
+
       dialog: false,
     };
   },
@@ -143,7 +143,7 @@ export default {
     addFav(index) {
       this.fav_active[index] = !this.fav_active[index];
     },
-  },
+  },  
   computed: {
     items() {
       const proLength = this.products.length;
