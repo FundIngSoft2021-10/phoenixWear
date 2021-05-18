@@ -3,6 +3,7 @@ const router = new express.Router();
 
 const getController = require("../controllers/get_users");
 const postController = require("../controllers/post_users");
+const putController = require("../controllers/put_users");
 const checkJwt = require("../auth/auth");
 
 router.get("/", getController.getUsers);
@@ -13,5 +14,6 @@ router.get("/getMyPurchase/:email", checkJwt, getController.getMyPurchases);
 router.get("/getMyCart/:email", checkJwt, getController.getMyCart);
 router.get("/getMyId/:email", checkJwt, getController.getMyId);
 router.post("/", postController.postUser);
+router.put("/addProduct/:id", putController.addNewProduct);
 
 module.exports = router;

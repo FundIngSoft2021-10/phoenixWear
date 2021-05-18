@@ -168,7 +168,9 @@ export default {
         }
       );
       this.id = data;
-      axios
+      let idProduct = "";
+      console.log(this.id);
+      await axios
         .post("https://n4mbc432.herokuapp.com/products", {
           information: {
             name: this.product_info.productName,
@@ -187,8 +189,14 @@ export default {
           ID_seller: this.id,
         })
         .then((res) => {
-          console.log(res);
-          alert(res);
+          alert(res.data.message);
+          idProduct = res.data.id;
+        });
+      await axios
+        .put(`https://n4mbc432.herokuapp.com/users/addProduct/${this.id}`, {
+          id: idProduct,
+        })
+        .then(() => {
           this.$router.push({ name: "MiCuenta" });
         });
     },
