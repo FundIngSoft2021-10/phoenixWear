@@ -59,6 +59,24 @@
                         "description": "User get failed!!"
                     }
                 }
+            },
+            "post":{
+                "summary": "postUsers",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Creates a new user in the system",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success, user created"
+                    },
+                    "500": {
+                        "description": "User creation failed!!"
+                    }
+                }
             }
         },
         "/users/findById/:id":{
@@ -259,6 +277,37 @@
                 ]
             }
         },
+        "/users/addProduct/:id":{
+            "put":{
+                "summary": "updatePurchaseStatus",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Updates a pruchase's status",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "404": {
+                        "description": "No product found with that id"
+                    },
+                    "500": {
+                        "description": "Update failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Id of purchased product"
+                    }
+                ]
+            }
+        },
+
 
         "/products": {
             "get": {
@@ -281,6 +330,237 @@
                         "description": "Product get failed!!"
                     }
                 }
+            }
+        },
+        "/products/findById/:id": {
+            "get": {
+                "summary": "Finds a product given an id",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Retrieves a product with a given id from data base",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns the product with given id"
+                    },
+                    "400": {
+                        "description": "Product not found, no product in the system with that id"
+                    },
+                    "500": {
+                        "description": "Product get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Id of a product"
+                    }
+                ]
+            }
+        },
+        "/products/findByCategory/:category": {
+            "get": {
+                "summary": "Finds all products of a given category",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Retrieves all products from a given category from data base",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns all products from a given category"
+                    },
+                    "400": {
+                        "description": "Products not found, no product from the given category"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "category",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Category of products. Eg: Sacos"
+                    }
+                ]
+            }
+        },
+        "/products/findBySize/:size": {
+            "get": {
+                "summary": "Finds all products of a given size",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Retrieves all products from a given size from data base",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns all products from a given size"
+                    },
+                    "400": {
+                        "description": "Products not found, no product from the given size"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "size",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Size of products. Eg: Small"
+                    }
+                ]
+            }
+        },
+        "/products/findByTags/:tag": {
+            "get": {
+                "summary": "Finds all products of a given tag",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Retrieves all products from a given tag from data base",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns all products from a given tag"
+                    },
+                    "400": {
+                        "description": "Products not found, no product from the given tag"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "tag",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Tag of products. Eg: Elegant"
+                    }
+                ]
+            }
+        },
+        "/products/findByIDSeller/:id": {
+            "get": {
+                "summary": "Finds the seller of a product, given its id",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Finds a product in the data base using its id and retrieves its seller.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns the product's seller"
+                    },
+                    "400": {
+                        "description": "Product not found, no product from the given id"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Product's id"
+                    }
+                ]
+            }
+        },
+        "/products/findByIDBuyer/:id": {
+            "get": {
+                "summary": "Finds the buyer of a product, given its id",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Finds a product in the data base using its id and retrieves its buyer.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns the product's buyer"
+                    },
+                    "400": {
+                        "description": "Product not found, no product from the given id"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Product's id"
+                    }
+                ]
+            }
+        },
+        "/products/updateStatus/:id": {
+            "put": {
+                "summary": "Updates a product's status, given its id",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Finds a product in the data base using its id and updates its status to next stage.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, updates status"
+                    },
+                    "404": {
+                        "description": "Product not found, no product from the given id"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Product's id"
+                    }
+                ]
             }
         }
     },
