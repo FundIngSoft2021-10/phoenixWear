@@ -2,16 +2,11 @@
   <v-main>
     <Header />
     <SearchBar v-if="is_searchBar_open" />
-    <div>
-      <div>
-        <img :src="$auth.user.picture" />
-        <h2>{{ $auth.user.name }}</h2>
-      </div>
 
       <div>
-        <pre>{{ JSON.stringify(products, null, 2) }}</pre>
+        <Selling/>
       </div>
-    </div>
+   
 
     <Footer />
   </v-main>
@@ -21,12 +16,14 @@
 import Header from "../components/general/Header.vue";
 import Footer from "../components/general/Footer";
 import SearchBar from "@/components/general/SearchBar";
+import Selling from "@/components/histories/Selling";
 import axios from "axios";
 export default {
   components: {
     Header,
     Footer,
     SearchBar,
+    Selling,
   },
   data: () => ({
     selectedItem: 1,
@@ -79,5 +76,10 @@ export default {
 }
 .card {
   margin-top: 5rem;
+}
+.user{
+  text-decoration: none;
+  color: #1b1a1a;
+  font-family: $montserratSemiBold-font;
 }
 </style>

@@ -3,13 +3,11 @@
     <Header />
     <SearchBar v-if="is_searchBar_open" />
     <div>
+    
       <div>
-        <img :src="$auth.user.picture" />
-        <h2>{{ $auth.user.name }}</h2>
-      </div>
-
-      <div>
-        <pre>{{ JSON.stringify(products, null, 2) }}</pre>
+        <pre>
+          <Purchases/>
+        </pre>
       </div>
     </div>
 
@@ -21,12 +19,14 @@
 import Header from "../components/general/Header.vue";
 import Footer from "../components/general/Footer";
 import SearchBar from "@/components/general/SearchBar";
+import Purchases from "@/components/histories/Purchases";
 import axios from "axios";
 export default {
   components: {
     Header,
     Footer,
     SearchBar,
+    Purchases,
   },
   data: () => ({
     selectedItem: 1,
