@@ -19,18 +19,45 @@
     </table>
 
     <h3 class="Estado line">Estado</h3>
-    <Status />
+    <Status :status="product.status" />
+    <v-btn
+      v-if="show"
+      @click="updateStatus"
+      class="btn"
+      color="phoenix"
+      dark
+      rounded
+      >Siguiente paso</v-btn
+    >
   </body>
 </template>
 
 <script>
 import Status from "./OrderStatus";
+import axios from "axios";
 export default {
   components: {
     Status,
   },
   props: {
     product: Object,
+    isBuyer: Boolean,
+  },
+  data() {
+    return {
+      show: false,
+    };
+  },
+  mounted() {
+    if (this.product.status == "Disponible" && !this.isBuyer) {
+      this.show = true;
+    } else if (
+      (this.product.status == "Enviado" ||
+        this.product.status == "Entregado") &&
+      this.isBuyer
+    ) {
+      this.show = true;
+    }
   },
   methods: {
     formatPrice(x) {
@@ -39,11 +66,20 @@ export default {
       parts[0] = parts[0].replace(/(\d+)(?=\d{3})/g, "$ $1,");
       return parts.join(".");
     },
+    async updateStatus() {
+      await axios.put(
+        `https://n4mbc432.herokuapp.com/products/updateStatus/${this.$route.params.id}`
+      );
+      window.location.reload();
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
+.btn {
+  margin: 2rem 0;
+}
 td {
   text-align: center;
 }

@@ -66,6 +66,9 @@
           prepend-icon="mdi-camera"
           label="Subir foto de perfil .png"
         />
+
+      <v-tooltip bottom>
+       <template v-slot:activator="{ on, attrs }">
         <v-btn
           :disabled="!valid"
           method="POST"
@@ -73,9 +76,14 @@
           large
           rounded
           dark
+          v-bind="attrs"
+          v-on="on"
           color="phoenix"
-          >Enviar!</v-btn
-        >
+          >Enviar!</v-btn>
+        </template>
+        <span>Actualiza tu información</span>
+      </v-tooltip>
+
       </v-col>
     </v-row>
   </v-form>

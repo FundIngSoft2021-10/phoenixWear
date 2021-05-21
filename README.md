@@ -1,3 +1,5 @@
+![CDNJS](https://img.shields.io/github/license/FundIngSoft2021-10/phoenixWear) ![CDNJS](https://img.shields.io/github/deployments/FundIngSoft2021-10/phoenixWear/phoenixwear?label=phoenixwear%20deploy) ![CDNJS](https://img.shields.io/github/deployments/FundIngSoft2021-10/phoenixWear/n4mbc432?label=n4mbc432%20deploy) ![CDNJS](https://img.shields.io/github/languages/top/FundIngSoft2021-10/phoenixWear)
+
 # ***Phoneix Wear - website***
 
 PhoenixWear is a web platform that seeks to give a second chance to high-level garments that have received few uses,
