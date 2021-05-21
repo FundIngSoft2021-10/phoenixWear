@@ -40,11 +40,11 @@
     "paths": {
         "/users": {
             "get": {
-                "summary": "getUsers",
+                "summary": "Gets all users",
                 "tags": [
                     "Users"
                 ],
-                "description": "Gets every user data",
+                "description": "Gets every users in the data base",
                 "produces": [
                     "application/json"
                 ],
@@ -61,11 +61,11 @@
                 }
             },
             "post":{
-                "summary": "postUsers",
+                "summary": "Adds a new user",
                 "tags": [
                     "Users"
                 ],
-                "description": "Creates a new user in the system",
+                "description": "Creates a new user in the system, including it in the data base",
                 "produces": [
                     "application/json"
                 ],
@@ -81,11 +81,11 @@
         },
         "/users/findById/:id":{
             "get":{
-                "summary": "Retrieves information for a user with a given id",
+                "summary": "Gets a user by id",
                 "tags": [
                     "Users"
                 ],
-                "description": "",
+                "description": "Retrieves information for a user with a given id",
                 "produces": [
                     "application/json"
                 ],
@@ -114,7 +114,7 @@
         },
         "/users/getMyInfo/:email":{
             "get":{
-                "summary": "getMyInfo",
+                "summary": "Gets a user information by email",
                 "tags": [
                     "Users"
                 ],
@@ -147,7 +147,7 @@
         },  
         "/users/getMyProducts/:email":{
             "get":{
-                "summary": "getMyProducts",
+                "summary": "Gets products sold by a user, by email",
                 "tags": [
                     "Users"
                 ],
@@ -180,7 +180,7 @@
         },
         "/users/getMyPurchase/:email":{
             "get":{
-                "summary": "getMyPurchase",
+                "summary": "Gets products bought by a user, by email",
                 "tags": [
                     "Users"
                 ],
@@ -213,7 +213,7 @@
         },      
         "/users/getMyCart/:email":{
             "get":{
-                "summary": "getMyCart",
+                "summary": "Gets a user's cart, by email",
                 "tags": [
                     "Users"
                 ],
@@ -246,7 +246,7 @@
         },
         "/users/getMyId/:email":{
             "get":{
-                "summary": "getMyId",
+                "summary": "Gets a user's id, by email",
                 "tags": [
                     "Users"
                 ],
@@ -279,20 +279,23 @@
         },
         "/users/addProduct/:id":{
             "put":{
-                "summary": "updatePurchaseStatus",
+                "summary": "New product linked to user given an id",
                 "tags": [
                     "Users"
                 ],
-                "description": "Updates a pruchase's status",
+                "description": "A newly created is product is added to the list of sold products of a user",
                 "produces": [
                     "application/json"
                 ],
                 "responses": {
+                    "200":{
+                        "description":"Success, product added correctly"
+                    },
                     "404": {
-                        "description": "No product found with that id"
+                        "description": "No user found with that id"
                     },
                     "500": {
-                        "description": "Update failed!!"
+                        "description": "Product addition failed!!"
                     }
                 },
                 "parameters":[
@@ -311,7 +314,7 @@
 
         "/products": {
             "get": {
-                "summary": "getProducts",
+                "summary": "Gets all products in the system",
                 "tags": [
                     "Products"
                 ],
@@ -334,7 +337,7 @@
         },
         "/products/findById/:id": {
             "get": {
-                "summary": "Finds a product given an id",
+                "summary": "Gets a product given an id",
                 "tags": [
                     "Products"
                 ],
@@ -367,7 +370,7 @@
         },
         "/products/findByCategory/:category": {
             "get": {
-                "summary": "Finds all products of a given category",
+                "summary": "Gets all products of a given category",
                 "tags": [
                     "Products"
                 ],
@@ -400,7 +403,7 @@
         },
         "/products/findBySize/:size": {
             "get": {
-                "summary": "Finds all products of a given size",
+                "summary": "Gets all products of a given size",
                 "tags": [
                     "Products"
                 ],
@@ -433,7 +436,7 @@
         },
         "/products/findByTags/:tag": {
             "get": {
-                "summary": "Finds all products of a given tag",
+                "summary": "Gets all products of a given tag",
                 "tags": [
                     "Products"
                 ],
@@ -466,7 +469,7 @@
         },
         "/products/findByIDSeller/:id": {
             "get": {
-                "summary": "Finds the seller of a product, given its id",
+                "summary": "Gets the seller of a product, given its id",
                 "tags": [
                     "Products"
                 ],
@@ -499,7 +502,7 @@
         },
         "/products/findByIDBuyer/:id": {
             "get": {
-                "summary": "Finds the buyer of a product, given its id",
+                "summary": "Gets the buyer of a product, given its id",
                 "tags": [
                     "Products"
                 ],
