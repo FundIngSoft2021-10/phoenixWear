@@ -61,6 +61,205 @@
                 }
             }
         },
+        "/users/findById/:id":{
+            "get":{
+                "summary": "Retrieves information for a user with a given id",
+                "tags": [
+                    "Users"
+                ],
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns the desired user"
+                    },
+                    "400": {
+                        "description": "Users not found, no user with that id"
+                    },
+                    "500": {
+                        "description": "User get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "The unique numerical identification of a user"
+                    }
+                ]
+            }
+        },
+        "/users/getMyInfo/:email":{
+            "get":{
+                "summary": "getMyInfo",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Retrieves information for a user with a given email",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns user information"
+                    },
+                    "400": {
+                        "description": "Users not found, no users in the system with that email"
+                    },
+                    "500": {
+                        "description": "User get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Email with which user created an account in the system"
+                    }
+                ]
+            }
+        },  
+        "/users/getMyProducts/:email":{
+            "get":{
+                "summary": "getMyProducts",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Retrieves all products being sold by a user with a given email",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns products being sold by the user"
+                    },
+                    "400": {
+                        "description": "User not found, no user with that email in the system"
+                    },
+                    "500": {
+                        "description": "MyProducts get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Email with which user created an account in the system"
+                    }
+                ]
+            }
+        },
+        "/users/getMyPurchase/:email":{
+            "get":{
+                "summary": "getMyPurchase",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Retrieves all products bought by a user with a given email",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns products bought by the user"
+                    },
+                    "400": {
+                        "description": "User not found, no user with that email in the system"
+                    },
+                    "500": {
+                        "description": "MyPurchase get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Email with which user created an account in the system"
+                    }
+                ]
+            }
+        },      
+        "/users/getMyCart/:email":{
+            "get":{
+                "summary": "getMyCart",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Retrieves the cart of a user with a given email",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns the cart the user"
+                    },
+                    "400": {
+                        "description": "User not found, no user with that email in the system"
+                    },
+                    "500": {
+                        "description": "MyCart get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Email with which user created an account in the system"
+                    }
+                ]
+            }
+        },
+        "/users/getMyId/:email":{
+            "get":{
+                "summary": "getMyId",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Gets a user's id through his/her email",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns user's id"
+                    },
+                    "400": {
+                        "description": "User not found, no user with that email in the system"
+                    },
+                    "500": {
+                        "description": "MyPurchase get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Email with which user created an account in the system"
+                    }
+                ]
+            }
+        },
+
         "/products": {
             "get": {
                 "summary": "getProducts",
