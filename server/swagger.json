@@ -1,0 +1,640 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Phoenix API",
+        "description": "This is the documentation of the phoenix web page backend",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "https://n4mbc432.herokuapp.com",
+    "basePath": "/api-docs",
+    "tags": [{
+            "name": "Users",
+            "description": "API for users in the system"
+        },
+        {
+            "name": "Products",
+            "description": "API for products in the system"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "in": "headers",
+            "name": "authorization"
+        }
+    },
+    "paths": {
+        "/users": {
+            "get": {
+                "summary": "Gets all users",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Gets every users in the data base",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns all users"
+                    },
+                    "400": {
+                        "description": "Users not found, no users in the system"
+                    },
+                    "500": {
+                        "description": "User get failed!!"
+                    }
+                }
+            },
+            "post":{
+                "summary": "Adds a new user",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Creates a new user in the system, including it in the data base",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success, user created"
+                    },
+                    "500": {
+                        "description": "User creation failed!!"
+                    }
+                }
+            }
+        },
+        "/users/findById/:id":{
+            "get":{
+                "summary": "Gets a user by id",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Retrieves information for a user with a given id",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns the desired user"
+                    },
+                    "400": {
+                        "description": "Users not found, no user with that id"
+                    },
+                    "500": {
+                        "description": "User get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "The unique numerical identification of a user"
+                    }
+                ]
+            }
+        },
+        "/users/getMyInfo/:email":{
+            "get":{
+                "summary": "Gets a user information by email",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Retrieves information for a user with a given email",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns user information"
+                    },
+                    "400": {
+                        "description": "Users not found, no users in the system with that email"
+                    },
+                    "500": {
+                        "description": "User get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Email with which user created an account in the system"
+                    }
+                ]
+            }
+        },  
+        "/users/getMyProducts/:email":{
+            "get":{
+                "summary": "Gets products sold by a user, by email",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Retrieves all products being sold by a user with a given email",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns products being sold by the user"
+                    },
+                    "400": {
+                        "description": "User not found, no user with that email in the system"
+                    },
+                    "500": {
+                        "description": "MyProducts get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Email with which user created an account in the system"
+                    }
+                ]
+            }
+        },
+        "/users/getMyPurchase/:email":{
+            "get":{
+                "summary": "Gets products bought by a user, by email",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Retrieves all products bought by a user with a given email",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns products bought by the user"
+                    },
+                    "400": {
+                        "description": "User not found, no user with that email in the system"
+                    },
+                    "500": {
+                        "description": "MyPurchase get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Email with which user created an account in the system"
+                    }
+                ]
+            }
+        },      
+        "/users/getMyCart/:email":{
+            "get":{
+                "summary": "Gets a user's cart, by email",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Retrieves the cart of a user with a given email",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns the cart the user"
+                    },
+                    "400": {
+                        "description": "User not found, no user with that email in the system"
+                    },
+                    "500": {
+                        "description": "MyCart get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Email with which user created an account in the system"
+                    }
+                ]
+            }
+        },
+        "/users/getMyId/:email":{
+            "get":{
+                "summary": "Gets a user's id, by email",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Gets a user's id through his/her email",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns user's id"
+                    },
+                    "400": {
+                        "description": "User not found, no user with that email in the system"
+                    },
+                    "500": {
+                        "description": "MyPurchase get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Email with which user created an account in the system"
+                    }
+                ]
+            }
+        },
+        "/users/addProduct/:id":{
+            "put":{
+                "summary": "New product linked to user given an id",
+                "tags": [
+                    "Users"
+                ],
+                "description": "A newly created is product is added to the list of sold products of a user",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200":{
+                        "description":"Success, product added correctly"
+                    },
+                    "404": {
+                        "description": "No user found with that id"
+                    },
+                    "500": {
+                        "description": "Product addition failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Id of purchased product"
+                    }
+                ]
+            }
+        },
+
+
+        "/products": {
+            "get": {
+                "summary": "Gets all products in the system",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Gets every product data",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns all products"
+                    },
+                    "400": {
+                        "description": "Products not found, no products in the system"
+                    },
+                    "500": {
+                        "description": "Product get failed!!"
+                    }
+                }
+            }
+        },
+        "/products/findById/:id": {
+            "get": {
+                "summary": "Gets a product given an id",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Retrieves a product with a given id from data base",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns the product with given id"
+                    },
+                    "400": {
+                        "description": "Product not found, no product in the system with that id"
+                    },
+                    "500": {
+                        "description": "Product get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Id of a product"
+                    }
+                ]
+            }
+        },
+        "/products/findByCategory/:category": {
+            "get": {
+                "summary": "Gets all products of a given category",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Retrieves all products from a given category from data base",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns all products from a given category"
+                    },
+                    "400": {
+                        "description": "Products not found, no product from the given category"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "category",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Category of products. Eg: Sacos"
+                    }
+                ]
+            }
+        },
+        "/products/findBySize/:size": {
+            "get": {
+                "summary": "Gets all products of a given size",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Retrieves all products from a given size from data base",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns all products from a given size"
+                    },
+                    "400": {
+                        "description": "Products not found, no product from the given size"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "size",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Size of products. Eg: Small"
+                    }
+                ]
+            }
+        },
+        "/products/findByTags/:tag": {
+            "get": {
+                "summary": "Gets all products of a given tag",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Retrieves all products from a given tag from data base",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns all products from a given tag"
+                    },
+                    "400": {
+                        "description": "Products not found, no product from the given tag"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "tag",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Tag of products. Eg: Elegant"
+                    }
+                ]
+            }
+        },
+        "/products/findByIDSeller/:id": {
+            "get": {
+                "summary": "Gets the seller of a product, given its id",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Finds a product in the data base using its id and retrieves its seller.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns the product's seller"
+                    },
+                    "400": {
+                        "description": "Product not found, no product from the given id"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Product's id"
+                    }
+                ]
+            }
+        },
+        "/products/findByIDBuyer/:id": {
+            "get": {
+                "summary": "Gets the buyer of a product, given its id",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Finds a product in the data base using its id and retrieves its buyer.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, returns the product's buyer"
+                    },
+                    "400": {
+                        "description": "Product not found, no product from the given id"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Product's id"
+                    }
+                ]
+            }
+        },
+        "/products/updateStatus/:id": {
+            "put": {
+                "summary": "Updates a product's status, given its id",
+                "tags": [
+                    "Products"
+                ],
+                "description": "Finds a product in the data base using its id and updates its status to next stage.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success, updates status"
+                    },
+                    "404": {
+                        "description": "Product not found, no product from the given id"
+                    },
+                    "500": {
+                        "description": "Products get failed!!"
+                    }
+                },
+                "parameters":[
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Product's id"
+                    }
+                ]
+            }
+        }
+    },
+
+    "definitions": {
+        "user": {
+            "properties": {
+                "personal_information": {
+                    "type": "InfoUser.schema",
+                    "required": "true"
+                },
+                "phoenix_credits": {
+                    "type": "Number",
+                    "default": "0"
+                },
+                "score": {
+                    "type": "Number",
+                    "required": "false",
+                    "min": "0",
+                    "max": "5",
+                    "default": "5"
+                },
+                "favorites": {
+                    "type": "Schema.Types.ObjectId",
+                    "ref": "'Product'",
+                    "required": "false"
+                },
+                "own_products": {
+                    "type": "Schema.Types.ObjectId",
+                    "ref": "'Product'",
+                    "required": "false"
+                },
+                "purchased_products": {
+                    "type": "Schema.Types.ObjectId",
+                    "ref": "'Product'",
+                    "required": "false"
+                },
+                "cart": {
+                    "type": "Cart.schema",
+                    "ref": "'Cart'",
+                    "required": "false"
+                }
+            }
+        },
+        "products": {
+            "properties": {
+                "information": {
+                    "type": "InfoProduct.schema",
+                    "required": "true"
+                },
+                "tags": {
+                    "type": "String",
+                    "required": "true"
+                },
+                "garment": {
+                    "type": "Garment.schema",
+                    "required": "true"
+                },
+                "ID_seller": {
+                    "type": "Schema.Types.ObjectId",
+                    "required": "true",
+                    "ref": "'User'"
+                },
+                "ID_buyer": {
+                    "type": "Schema.Types.ObjectId",
+                    "required": "false",
+                    "ref": "'User'"
+                }
+            }
+        }
+
+
+    }
+}
