@@ -1,5 +1,6 @@
 <template>
   <v-main class="main">
+    <div class="main2">
     <v-card class="resumen">
       <div class="titulo">
         <p class="remi">Resumen de mi carrito</p>
@@ -32,7 +33,7 @@
       </router-link>
     </v-card>
 
-    <v-card elevation="0" max-width="710" class="productos">
+    <v-card max-width="710" class="productos">
       <v-virtual-scroll :items="items" height="470" item-height="200">
         <template v-slot:default="{ item }">
           <v-list-item class="item">
@@ -111,21 +112,45 @@
         </template>
       </v-virtual-scroll>
     </v-card>
+    </div>
   </v-main>
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  props: {
-    products: Array,
-    fav_active: [],
-  },
   data() {
     return {
+      products: "",
+      fav_active: [],
       total: 0,
 
       dialog: false,
     };
+  },
+  async mounted() {
+    const token = await this.$auth.getTokenSilently();
+
+    // Use Axios to make a call to the API
+    const { data } = await axios.get(
+      `https://n4mbc432.herokuapp.com/users/getMyCart/${this.$auth.user.email}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // send the access token through the 'Authorization' header
+        },
+      }
+    );
+    
+    this.products = data;
+    this.lengthP = this.products.length;
+    console.log(12);
+    console.log(this.products.length);
+
+    this.total = this.products.reduce(function(prev, cur) {
+      return prev + cur.information.price;
+    }, 0);
+    this.fav_active = new Array(this.products.length).fill(false);
+  
   },
   methods: {
     formatPrice(x) {
@@ -146,9 +171,8 @@ export default {
   },  
   computed: {
     items() {
-      const proLength = this.products.length;
-
-      return Array.from({ length: proLength }, (k, v) => {
+      //proLength = this.products.length;
+      return Array.from({ length: this.products.length }, (k, v) => {
         return {
           _id: this.products[v]._id,
           name: this.products[v].information.name,
@@ -159,20 +183,20 @@ export default {
       });
     },
   },
-
-  created() {
-    this.total = this.products.reduce(function(prev, cur) {
-      return prev + cur.information.price;
-    }, 0);
-    this.fav_active = new Array(this.products.length).fill(false);
-  },
-};
+}
 </script>
 
 <style scoped lang="scss">
+.main2{
+  display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: space-evenly;
+}
 .resumen {
   width: 280px;
+  height: 470px;
   float: right;
+  padding-top: 80px;
 
   .titulo {
     text-transform: uppercase;
@@ -219,6 +243,7 @@ export default {
 
 .productos {
   font-family: $montserratSemiBold-font;
+  flex: 1;
 
   .icons {
     position: absolute;
@@ -230,6 +255,7 @@ export default {
   }
 
   .item {
+    margin-top: 20px;
     color: white;
   }
   .prendaInfo {
