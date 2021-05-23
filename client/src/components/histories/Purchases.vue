@@ -23,7 +23,7 @@
         <tbody>
           <tr v-for="(product, i) in products" :key="i">
             <td>{{ product.information.name }}</td>
-            <td>$ {{ product.information.price }}</td>
+            <td>{{ formatPrice(product.information.price) }}</td>
             <td class="productSize">{{ product.garment.size }}</td>
             <td>{{ product.information.color }}</td>
             <td>
@@ -48,6 +48,14 @@ export default {
       products: null,
       isLoaded: false,
     };
+  },
+    methods: {
+    formatPrice(x) {
+      x = Math.round((x + Number.EPSILON) * 100) / 100;
+      const parts = x.toString().split(".");
+      parts[0] = parts[0].replace(/(\d+)(?=\d{3})/g, "$ $1,");
+      return parts.join(".");
+    },
   },
   async mounted() {
     const token = await this.$auth.getTokenSilently();

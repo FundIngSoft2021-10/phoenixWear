@@ -22,13 +22,13 @@ export default {
   data() {
     return {
       user_info: {
-        username: "Monotera",
+        username: "Prueba2",
         name: "Nelson Mosquera",
         address: "Cra7 #45-3",
-        department: "Bogota",
-        city: "Bogota",
+        department: "Boyaca",
+        city: "Tunja",
         phone: "300-478-8575",
-        email: "nelson.mosquera@javeriana.edu.co",
+        email: "prueba2@phnx.com",
         password: "prueba1234",
         img: null,
       },
