@@ -7,7 +7,7 @@
             <h3>{{ title }}</h3>
             <v-tooltip right v-if = !show>
               <template v-slot:activator="{ on, attrs }">
-                <v-btn v-bind="attrs" v-on="on" icon @click="show = !show">
+                <v-btn class="showButton" v-bind="attrs" v-on="on" icon @click="show = !show">
                   <v-icon>{{
                     show ? "mdi-chevron-up" : "mdi-chevron-down"
                   }}</v-icon>

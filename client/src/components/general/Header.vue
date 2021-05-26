@@ -2,15 +2,15 @@
   <div class="margin">
     <header>
       <div class="MC">
-        <router-link class="MC" to="/cuenta">Mi cuenta </router-link>
+        <router-link class="MC" id="cuentaId" to="/cuenta">Mi cuenta </router-link>
         <i class="fas fa-user-alt"></i> <i class="fas fa-bell"></i>
-        <div v-if="!$auth.loading">
+        <div> <!-- Loading deleted -->
           <!-- show login when not authenticated -->
           <!-- button v-if="!$auth.isAuthenticated" @click="login">Log in</button -->
           <!-- show logout when authenticated -->
         <v-tooltip bottom>
           <template v-slot:activator="{ on, attrs }">
-          <button class="auth" v-bind="attrs" v-on="on" v-if="$auth.isAuthenticated" @click="logout">Log out</button>
+          <button id= "log" class="auth" v-bind="attrs" v-on="on" @click="logout">Log out</button> <!-- IsAuthe.. deleted -->
           </template>
           <span>Cerrar sesión</span>
         </v-tooltip>
@@ -23,7 +23,7 @@
                 
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
-        <i v-bind="attrs" v-on="on" @click="changeMode()" class="fas fa-search"></i>
+        <i id= "buscar" v-bind="attrs" v-on="on" @click="changeMode()" class="fas fa-search"></i>
         </template>
       <span>Busca un artículo</span>
       </v-tooltip>
@@ -104,7 +104,7 @@ export default {
 
 <style scoped lang="scss">
 h1 {
-  font-family: $pattaya-font;
+ font-family: $pattaya-font;
   font-size: 45px;
   color: #2c363f;
   margin-top: 5mm;

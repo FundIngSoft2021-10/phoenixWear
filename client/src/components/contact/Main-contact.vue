@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="main">
-      <v-row justify="center">
+      <v-row justify="center" class="Nombre">
         <v-col cols="9">
           <h2>PREGUNTAS ESPECIFICAS</h2>
           <p>
@@ -16,9 +16,10 @@
       </v-row>
       <v-row justify="center">
         <v-col cols="9">
-          <form method="POST" action="https://formspree.io/f/mbjqjand">
+          <form id="formId" method="POST" action="https://formspree.io/f/mbjqjand">
             <v-text-field
               name="Nombre"
+              id="nameId"
               :counter="20"
               label="Nombre"
               required
@@ -35,6 +36,8 @@
               name = "Email"
               :counter="100"
               label="Email"
+              v-model = "email"
+              id="emailId"
               required
               :rules="email_rule"
             />
@@ -50,7 +53,6 @@
               required
             /><v-btn
               type="submit"
-              name="send"
               class="send"
               color="phoenix"
               dark
@@ -83,14 +85,14 @@ export default {
           "El campo debe de tener menos de 500 caracteres",
       ],
       email_rule: [
+         (value) =>
+          /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            value
+          ) || "E-mail must be valid",
         (value) => !!value || "E-mail is required",
         (v) =>
           (v && v.length <= 100) ||
           "El campo debe de tener menos de 100 caracteres",
-        (value) =>
-          /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-            value
-          ) || "E-mail must be valid",
       ],
     };
   },

@@ -34,9 +34,9 @@
     </v-card>
 
     <v-card max-width="710" class="productos">
-      <v-virtual-scroll :items="items" height="470" item-height="200">
+      <v-card :items="items" height="470" item-height="200" class="item">
         <template v-slot:default="{ item }">
-          <v-list-item class="item">
+          <v-list-item class="item1">
             <img :src="item.img" height="100" width="100" />
             <div class="prendaInfo">
               <router-link :to="`producto/${item._id}`" class="link">
@@ -110,7 +110,7 @@
             </div>
           </v-list-item>
         </template>
-      </v-virtual-scroll>
+      </v-card>
     </v-card>
     </div>
   </v-main>
@@ -128,7 +128,7 @@ export default {
       dialog: false,
     };
   },
-  async mounted() {
+  /*async mounted() {
     const token = await this.$auth.getTokenSilently();
 
     // Use Axios to make a call to the API
@@ -151,7 +151,7 @@ export default {
     }, 0);
     this.fav_active = new Array(this.products.length).fill(false);
   
-  },
+  },*/
   methods: {
     formatPrice(x) {
       x = Math.round((x + Number.EPSILON) * 100) / 100;

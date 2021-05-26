@@ -28,7 +28,7 @@
               }}<br />
             </v-card-text>
             <router-link class="link" to="/carrito"
-              ><v-btn class="btn" color="phoenix" dark
+              ><v-btn id="agregar" class="btn" color="phoenix" dark
                 >Agregar al carrito</v-btn
               >
             </router-link>
